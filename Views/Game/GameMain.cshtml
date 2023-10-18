@@ -1,0 +1,347 @@
+﻿@page
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	@* EXTERNAL LINKLER *@
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/AIRBORNERIVALSCss.css" asp-append-version="true">
+	<link rel="stylesheet" href="~/css/GenelCss.css" asp-append-version="true">
+	<title>CybernaticSkirmish</title>
+</head>
+
+<body >
+	<div id="GAMESECTION">
+
+		<div class="MAINGAME row">
+			<div class="OYUNMENU container-fluid">
+
+				<div class="GAMELOGIC  DisplayNone">
+					<div class="container OYUNMANTIK">
+						<div class=" column">
+							<div class="row-lg-10">
+								<p class="ParagrafBası">
+									<i style="color: #ec1111;">AIRBORNE RIVALS</i> oyununun kısaca
+									mantığı şu şekilde. Bizim kontrol ettiğimiz bir dron
+									var ve bu dron düşman dronları tarafından saldırı altında ve amaçları bizim yakınımıza
+									gelerek kendilerini imha edip hem kendisini hem de bizi yok etmek. Bizim elimizde ise
+									dronumuza ait bir silah var ve biz bu dron silahını sağ, sol, üst, alt yönlere çevirerek
+									istediğimiz yöne ateş edebiliyoruz ama sürekli ateş etmemiz belli bir süre sonra bizim
+									lazer mühimmatımızı bitiriyor ve bunun sonucu olarak tekrar ateş edebilmemiz için lazer
+									mühimmatımızı yeniden doldurmamız gerekiyor.
+									Dronumuzun sol altındaki bar bize ne kadar lazer mühimmatımız kaldığını gösteriyor.
+									Ayrıca
+									dronumuzu haritanın sınırlarına dokunmamak şartıyla istediğimiz yönde hareket
+									ettirebiliriz. Özellikle ilerleyen aşamalarda bolca dron bize saldıracak, bu yüzden
+									mümkün olduğunca
+									hareketli olmaya çalışmalıyız ve hareket ederken de bize doğru yaklaşan dronları
+									silahımızı o yöne çevirerek yok etmeliyiz. Ne kadar dayanırsak o kadar yüksek skor
+									alırız. İYİ AVLAMALAR!
+									<br>
+									<i> <b style="color: red;">OYNANIŞ</b></i> <br>
+									HAREKET : W, A, S, D <br>
+									SAĞA DÖNÜŞ : SAĞ YÖN TUŞU <br>
+									SOLA DÖNÜŞ : SOL YÖN TUŞU <br>
+									YUKARIYA DÖNÜŞ : YUKARI YÖN TUŞU <br>
+									AŞAĞIYA DÖNÜŞ : AŞAĞI YÖN TUŞU <br>
+									ATEŞ ETME : BOŞLUK TUŞU <br>
+									MERMI YENİLEME : R <br>
+									OYUNDAN ÇIKIŞ : ESC <br>
+								</p>
+							</div>
+							<div class="row-lg-2 DisplayFlex">
+								<button class="NEONBUTON GAMESCAPEBUTON" id="GAMELOGICOFF">PANELİ KAPAT</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="COSMETICPANEL  DisplayNone">
+					<div class="container-fluid Cosmetic" style="height: 80%;">
+						<div class="row DisplayFlex" style="justify-content: space-between;">
+							<div class="col-lg-5 container-fluid DRONCOSMETIC">
+								<div class="column">
+									<div class="row-lg-2 DisplayFlex" style="height: 20%;">
+										<div class="NEONDIV" style="display: block;  width: 100%; position: absolute;">
+											<H1 style="font-size: 30px; text-align: center; display: block;">
+												DRON KOZMETİĞİ
+											</H1>
+										</div>
+									</div>
+									<div class="row-lg-10" style="height: 80%;">
+										<div class="row " style=" display: block; margin: 0;">
+											<div class="COSMETICTABLE">
+												<div>
+													<img src="~/PLAYSCRIBE_Frontend/Images/Drone1.png" class="CELLS">
+												</div>
+												<div>
+													<img src="~/PLAYSCRIBE_Frontend/Images/Drone2.png" class="CELLS">
+												</div>
+												<div>
+													<img src="~/PLAYSCRIBE_Frontend/Images/Drone3.png" class="CELLS">
+												</div>
+												<div>
+													<img src="~/PLAYSCRIBE_Frontend/Images/Drone4.png" class="CELLS">
+												</div>
+												<div>
+													<img src="~/PLAYSCRIBE_Frontend/Images/Drone5.png" class="CELLS">
+												</div>
+												<div>
+													<img src="~/PLAYSCRIBE_Frontend/Images/Drone6.png" class="CELLS">
+												</div>
+												<div>
+													<img src="~/PLAYSCRIBE_Frontend/Images/Drone7.png" class="CELLS">
+												</div>
+												<div>
+													<img src="~/PLAYSCRIBE_Frontend/Images/Drone8.png" class="CELLS">
+												</div>
+												<div>
+													<img src="~/PLAYSCRIBE_Frontend/Images/Drone9.png" class="CELLS">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-lg-1 offset">
+							</div>
+							<div class="col-lg-5  container-fluid LAZERCOSMETIC">
+								<div class="column">
+									<div class="row-lg-2 DisplayFlex" style="height: 20%;">
+										<div class="NEONDIV" style="display: block;  width: 100%; position: absolute;">
+											<H1 style="font-size: 30px; text-align: center; display: block;">
+												LAZER KOZMETİĞİ
+											</H1>
+										</div>
+									</div>
+									<div class="row-lg-10" style="height: 80%;">
+										<div class="row" style="display: block;">
+											<div class="COSMETICTABLE">
+												<div class="LAZERCELLS">
+													<div style="height: 90%; width: 1%; border: 2px solid rgba(231, 32, 32); border-radius: 10px;">
+													</div>
+												</div>
+												<div class="LAZERCELLS">
+													<div style="height:  90%; width: 1%; border: 2px solid rgba(32, 231, 221); border-radius: 10px;">
+													</div>
+												</div>
+												<div class="LAZERCELLS">
+													<div style="height:  90%; width: 1%; border: 2px solid rgba(32, 231, 59); border-radius: 10px;">
+													</div>
+												</div>
+												<div class="LAZERCELLS">
+													<div style="height:  90%; width: 1%; border: 2px solid rgba(231, 32, 221); border-radius: 10px;">
+													</div>
+												</div>
+												<div class="LAZERCELLS">
+													<div style="height:  90%; width: 1%; border: 2px solid rgba(218, 231, 32); border-radius: 10px;">
+													</div>
+												</div>
+												<div class="LAZERCELLS">
+													<div style="height:  90%; width: 1%; border: 2px solid rgba(162, 0, 255); border-radius: 10px;">
+													</div>
+												</div>
+												<div class="LAZERCELLS">
+													<div style="height:  90%; width: 1%; border: 2px solid rgba(41, 11, 207); border-radius: 10px;">
+													</div>
+												</div>
+												<div class="LAZERCELLS">
+													<div style="height:  90%; width: 1%; border: 2px solid rgba(255, 255, 255); border-radius: 10px;">
+													</div>
+												</div>
+												<div class="LAZERCELLS">
+													<div style="height:  90%; width: 1%; border: 2px solid rgba(255, 136, 0); border-radius: 10px;">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<div class="CosmeticOffPaneli DisplayFlex">
+						<button class="NEONBUTON GAMESCAPEBUTON" id="COSMETICOFF">PANELİ KAPAT</button>
+					</div>
+				</div>
+
+				<div class="modal fade" id="NAMEENTER" tabindex="-1" aria-labelledby="NAMEENTERLABEL" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+								<h4 class="LoginWarningTitle">UYARI</h4>
+								<p class="LoginWarningText">ANLAŞILAN OTURUM AÇMAMIŞSINIZ. OYUNA BAŞLAYABİLMEK İÇİN LÜTFEN OTURUM AÇINIZ EĞER HESABINIZ YOKSA KAYIT OLUNUZ.</p>
+								</div>
+							<div class="DisplayFlex">
+								<hr class="hrEight" style="margin-top: 30px; color : white; background-color : white;">
+							</div>
+								<div class="modal-footer">
+								    <div>
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">KAPAT</button>
+									</div>
+									<div>
+									<a asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="@Url.Action("GameMain", "Game")">
+										<button type="button" class="btn" style="background-color: #12bd53; color: white;">
+											Kayıt Ol
+										</button>
+									</a>
+									
+									</div>
+								   <div>
+									   <a  asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("GameMain", "Game")"><button type="button" class="btn" style="background-color: #1240bd;  color: white;">
+										Oturum Aç
+									</button></a>
+									
+								   </div>			
+								</div>
+							</div>
+						</div>
+				</div>
+				<div class="offcanvas offcanvas-end " tabindex="-1" id="RECORDTABLE" aria-labelledby="RECORDLABEL">
+					<div class="offcanvas-header">
+						<h2 id="RECORDLABEL">REKORLAR</h2>
+						<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+								aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body container-fluid">
+						<div class="row">
+							<div class="col-lg-4 RekorcuIsımPanel"">
+								<div class="RekorcuIsımler">
+									<h1>KULLANICI İSİMLERİ</h1>
+								</div>
+								@foreach (ScoreTable item in ViewBag.liste)
+								{
+									<div class="RekorEleman">
+										<div class="DisplayFlex" style="align-items:start;">
+											<hr class="hrEight Light">
+										</div>
+										<div class="DisplayFlex" style="justify-content:space-between">
+											<div>
+												<section>@item.Username</section>
+											</div>
+										</div>
+										<div class="DisplayFlex" style="align-items:end;">
+											<hr class="hrEight Light">
+										</div>
+									</div>
+								}	
+							</div>
+							<div class="col-lg-7 RekorcuSkorPanel" >
+								<div class="RekorSkorlar">
+									<div>
+										<h1>REKOR İSTATİSTİKLER</h1>
+									</div>
+									<div class="DisplayFlex RekorTur">
+										<div class="Rekorİstatistik DisplayFlex">
+											<div>
+												<h6>OYUN SKORU</h6>
+											</div>
+											
+										</div>
+										<div class="Rekorİstatistik DisplayFlex">
+											<div>
+												<h6> DRON 1 ÖLDÜRME SAYISI</h6>
+											</div>
+											
+										</div>
+										<div class="Rekorİstatistik DisplayFlex">
+											<div>
+												<h6>DRON 2 ÖLDÜRME SAYISI</h6>
+											</div>
+										</div>
+										<div class="Rekorİstatistik DisplayFlex">
+											<div>
+												<h6>DRON 3 ÖLDÜRME SAYISI</h6>
+											</div>
+											
+										</div>
+										<div class="Rekorİstatistik DisplayFlex">
+											<div>
+												<h6>DRON 4 ÖLDÜRME SAYISI</h6>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							
+								@foreach (ScoreTable item in ViewBag.liste)
+								{
+									<div class="RekorElemanSkor">
+										<div class="DisplayFlex" style="align-items:start;">
+											<hr class="hrEight Light">
+										</div>
+										<div class="DisplayFlex" style="justify-content:space-around;  position : relative;">
+											<div class="RekorVeri">
+												<section>@item.BestScore</section>
+											</div>
+											<div class="RekorVeri">
+												<section>@item.MaxDron1Kill</section>
+											</div>
+											<div class="RekorVeri">
+												<section>@item.MaxDron2Kill</section>
+											</div>
+											<div class="RekorVeri">
+												<section>@item.MaxDron3Kill</section>
+											</div>
+											<div class="RekorVeri">
+												<section>@item.MaxDron4Kill</section>
+											</div>
+										</div>
+										<div class="DisplayFlex" style="align-items:end;">
+											<hr class="hrEight Light">
+										</div>
+									</div>
+
+								}	
+							
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column GAMEMAINMENU">
+					<div class="row-lg-2 GAMEMENUTITLE">
+						<div style="position: relative;">
+							<div class="NEONDIV" style="position: absolute;">
+								<h1>PLAYSCRIBE'DA AIRBORNE RIVALS OYUNUNA HOŞGELDİN!</h1>
+							</div>
+						</div>
+					</div>
+					<div class="row-lg-5 GAMEMENUROW1">
+						<button class="MenuButton NEONBUTON" id="STARTGAME">OYUNA BAŞLA</button>
+					</div>
+					<div class="row-lg-3 GAMEMENUROW2">
+						<button class="MenuButton NEONBUTON LOGICBUTTON">OYUNUN MANTIĞI</button>
+						<button class="MenuButton NEONBUTON" id="COSMETIC">KOZMETİK</button>
+						<button class="MenuButton NEONBUTON" id="RECORDS" data-bs-toggle="offcanvas"
+								data-bs-target="#RECORDTABLE" aria-controls="offcanvasRight">
+							REKORLAR
+						</button>
+					</div>
+					<div class="row-lg-2 GAMEMENUROW3">
+						<button class="ESCAPE_BTN MenuButton NEONBUTON">GERİ DÖN</button>
+
+						<a class="nav-link MenuButton" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("GameMain", "Game")" style="padding:0;height:100%; position: relative;">
+							<button class="MenuButton NEONBUTON">OTURUM AÇ </button></a>
+						
+					</div>
+				</div>
+
+			</div>
+			
+
+		</div>
+	</div>
+	<script src="~/js/JavaControl.js" asp-append-version="true"></script>
+	<script src="~/js/ARControls.js" asp-append-version="true"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿@page
+@model ResendEmailConfirmationModel
+@{
+    ViewData["Title"] = "Resend email confirmation";
+}
+
+<div class="row DisplayFlex">
+    <div class="IdentityTitle NEONDIV">
+        <h1>EMAIL DOĞRULAMA</h1>
+    </div>
+	<div class="col-md-5" style="height : 100%">
+		<div class="Form_Table">
+            <form method="post">
+                <h1 class="Form-Title">Mailinize Doğrulama Mesajı Gönderin</h1>
+                <hr class="hrEight" style="margin-top: 30px; width: 100%;">
+                <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Email" class="Identity-Label form-label"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <button type="submit" class="w-100 btn btn-lg btn-primary">Resend</button>
+            </form>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

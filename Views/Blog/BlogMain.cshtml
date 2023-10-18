@@ -1,0 +1,1323 @@
+﻿
+@page
+@{
+	Layout = null;
+}
+@using PLAYSCRIBE_Backend.Models
+    <!DOCTYPE html>
+    <html lang="en">
+  <head>
+   	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     @* GOOGLE FONT LİNKLERİ *@
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lugrasimo&display=swap" rel="stylesheet">
+      @* EXTERNAL LINKLER *@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/Blokcss.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/GenelCss.css" asp-append-version="true">
+    <title>Blok</title>
+</head>
+<body>
+    <div id="BLOCKSECTION">
+		  <div class="MAINBLOK">
+        <div class="ESCAPE">
+            <button class="ESCAPE_BTN NEONBUTON" >GERİ DÖN</button>
+        </div>
+        <div class="container MainBlockMenu BackgroundImage">
+            <nav class="navbar navbar-expand-lg NAVBARBLOK" style="color: white;">
+                <div class="container-fluid ">
+                    <h1 class="navbar-brand" href="#" style="color: rgb(143, 85, 85);"><i>BlockifyWorld</i></h1>
+                    <button class="navbar-toggler BackgroundImage" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false" aria-label="Toggle navigation" style="background-size: contain;">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav NavBlock">
+                            <a class="nav-link active" aria-current="page" href="#" id="Block_btn">BLOGLAR</a>
+                            <a class="nav-link" href="#" id="BlockFeedBack_btn">İLETİŞİM</a>
+                            <a class="nav-link" href="#" id="BlockAbout">HAKKINDA</a>
+                        </div>
+                          <div class="navbar-nav NavBlock">
+                             @if (User.Identity.IsAuthenticated)
+                              {
+                                 <span class="nav-link DisplayFlex"> <div>@User.Identity.Name</div></span>
+                                   <a class="nav-link"> <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                                      <button type="submit" class="nav-link btn btn-link" style="border:none; margin:auto;">ÇIKIŞ YAP</button>
+                                  </form></a>
+                              }
+                              else
+                              {
+                                  <a class="nav-link" asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="@Url.Action("BlogMain", "Blog")">Kayıt Ol</a>
+                                  <a class="nav-link" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("BlogMain", "Blog")">Oturum Aç</a>
+                              }
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="BlockMenu CoverSquare" style="position: absolute;">
+                <div class="row">
+                    <div class="DisplayFlex" style="height: 15%;">
+                        <div>
+                            <h3 class=" BlokMenuAnaBaslık ELyazısı" >
+                                <i>BLOGLAR</i>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="DisplayFlex" style="height: 5%;">
+                        <hr class="hrEight">
+                    </div>
+                    <div class="DisplayFlex" style="height: 5%;  justify-content: end;">
+                        <div>
+                            <button class="FavoriBloklar ButonGolge btn btn-info" type="button">Favori Bloglar</button>
+                            <button class="GeriBloklar DisplayNone ButonGolge btn btn-danger" type="button">Tüm Bloglar</button>
+                        </div>
+                    </div>
+                    <div style="height: 20%;">
+                        <div class="CoverSquare">
+                            <div class="row">
+                                <div class="col-lg-5  offset">
+                                </div>
+                                <div class="col-lg-2 DisplayFlex">
+                                    <div class=" BlokMiniGorsel BackgroundImage NO1"  style=" background-image: url('/PLAYSCRIBE_Frontend/Images/Block1.png'); ">
+                                        <div class="BlokSecenekler DisplayFlex" style="flex-wrap: wrap; justify-content: space-around;">
+                                              @if (User.Identity.IsAuthenticated)
+                                              {
+                                                  <div class="Blok_Goruntule_Div">
+                                                    <button class="ShowBlok ButonGolge btn btn-primary"
+                                                    type="button" style="padding: 10px;">Görüntüle</button>
+                                                  </div>
+                                                  <div class="Blok_Yorumla_Div" >
+                                                   <button class="CommentBlok ButonGolge btn btn-success"
+                                                    type="button" style="padding: 10px;">Yorumla</button>
+                                                  </div>
+                                                  <div class="Like">
+                                                   <img src='/PLAYSCRIBE_Frontend/Images/UnLike.jpg' style="height: 100%; width: 100%;">
+                                                  </div>
+                                              }
+                                             else
+                                             {
+                                                  <div class="LoginWarning_Blog">
+                                                     <h6 style="color:aliceblue; text-align:center;">Görünüşe göre oturum açmamışsınız lütfen oturum açınız.
+                                                     </h6>
+                                                  </div>
+                                                  <div class="SignupButton_blog">
+                                                         <a style="border-radius:10px;" type="button"  class="nav-link btn-success"  asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="@Url.Action("BlogMain", "Blog")">Kayıt Ol</a>
+                                                  </div>
+                                                  <div class="LoginButton_blog">
+                                                      <a  style="border-radius:10px;"  type="button"  class="nav-link btn-primary" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("BlogMain", "Blog")">Oturum Aç</a>
+                                                  </div>    
+                                             }    
+                                        </div>
+                                    </div>
+                                   <div class="NoFavori DisplayFlex DisplayNone" >
+                                     <div class="DisplayFlex" style="height:100%;width:50%; text-align:center">
+                                      <h3 class="ELyazısı" style="color: rgb(20, 13, 13); font-size: 50px;"> <i>Favori Herhangi Bir Blog Yok.</i> </h3></div> 
+                                     </div>
+                                </div>
+                                <div class="col-lg-5 offset">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="DisplayFlex" style="height: 5%;">
+                        <hr class="hrEight">
+                    </div>
+                    <div style="height: 50%;">
+                        <div class="CommentSection DisplayNone">
+                            <div class="DisplayFlex" style="height: 10%; justify-content: start;">
+                                <h3 class="ELyazısı CommentTitle">
+                                    
+                                </h3>
+                            </div>
+                            <div class="CoverSquare" style="height: 90%;">
+                                <div class="row">
+                                    <div class="BlokYorumlar">
+                                        <h2 class="ELyazısı CommentTitle"
+                                        style="color: rgb(50, 50, 51); margin-left: 10px;">
+                                        YORUMLAR
+                                       </h2>
+                                       <div class="DisplayFlex">
+                                        <hr class="hrEight" style="margin-top: 30px;">
+                                       </div>
+                                       <div  class="CurrentComments">
+
+                                        </div>
+                                   </div>
+                                    <div class="YorumYazmaBlok DisplayNone">
+                                        <div class="mb-4" style="height:50%;">
+                                            <label for="exampleFormControlTextarea1"
+                                                class="form-label ELyazısı" style="font-size:20px;">Yorumunuz</label>
+                                            <textarea class="BlokForm form-control BlokYorumDegeri" id="exampleFormControlTextarea1"
+                                                rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button class="YorumKaydetme btn btn-success" type="button"
+                                                style="width: 30%;">
+                                                Gönder</button>
+                                        </div>
+                                        <div class="DisplayFlex mb-2">
+                                            <hr class="hrEight" style="margin-top: 30px;">
+                                        </div>
+                                        <div class="mb-4">
+                                           <h2><i> Değerlendirmeleriniz bizim için kıymetlidir.</i></h2>
+                                        </div>
+                                    </div>
+
+                                     <div class="YorumOturum DisplayNone">
+                                         <div>
+                                             <h1 class="ELyazısı" style="color:red;text-align:center;">UYARI</h1>
+                                         </div>
+							        	
+                                         <div class="DisplayFlex">
+                                            <hr class="hrEight" style="margin-top: 30px;">
+                                        </div>
+                                        <div>
+                                            	<p class="MetinYazısı" style="text-align:center; font-size:30px;">ANLAŞILAN OTURUM AÇMAMIŞSINIZ. OYUNA BAŞLAYABİLMEK İÇİN LÜTFEN OTURUM AÇINIZ EĞER HESABINIZ YOKSA KAYIT OLUNUZ.</p>
+                                        </div>
+                                           <div class="DisplayFlex">
+                                            <hr class="hrEight" style="margin-top: 30px;">
+                                          </div>
+                                          <div class="DisplayFlex" style="height: 30%; justify-content: space-around;">
+								        	<a asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="@Url.Action("BlogMain", "Blog")">
+									     	<button type="button" class="btn" style="background-color: #12bd53; color: white;">
+										  	Kayıt Ol
+										   </button>
+									       </a>
+									       <a  asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("BlogMain", "Blog")"><button type="button" class="btn" style="background-color: #1240bd;  color: white;">
+									        	Oturum Aç
+									        </button></a>
+									     </div>
+                                    </div>
+                                    <div style="height: 10%;">
+                                        <button class="BlokKapat ButonGolge btn btn-danger" type="button">Pencereyi
+                                            Kapat</button>
+                                        <button class="BlokYorumYaz ButonGolge btn btn-warning" type="button">Yorumla</button>
+                                        <button class="BlokYorumlarButon ButonGolge DisplayNone btn btn-info"
+                                            type="button">Yorumlar</button>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+                 
+            </div>
+            <div class="Blocks DisplayNone">
+    
+                <Div  class="BLOCKCONTENT" >
+                    <div class="PAGE1BLOCK">
+                        <div class="BLOCK1 container-fluid PAGE1">
+                            <div class="column">
+                                <div class="BLOKANABASLIK row-lg-1">
+                                    <h1 class="BLOCK1_TITLE ELyazısı"><i>BALKAN TURUM</i></h1>
+                                </div>
+                                <div class="BLOKANATANITIM row-lg-11 container-fluid">
+                                    <div class="column">
+    
+                                        <div class=" BLOCK1_ILKSATIR" >
+                                            <div class="BLOCK1_BASGORSEL BackgroundImage"
+                                                style="background-image: url('/PLAYSCRIBE_Frontend/Images/YUNANISTANBAS.jpg')">
+                                                <h3 class="ParagrafBası ELyazısı">
+                                                    <i>Yunanistan</i>
+                                                </h3>
+                                            </div>
+                                            <div class="BLOCK1_BASGORSEL BackgroundImage"
+                                                style="background-image: url('/PLAYSCRIBE_Frontend/Images/MAKEDONYABAS.jpg')">
+                                                <h3 class="ParagrafBası ELyazısı">
+                                                    <i>Makedonya</i>
+                                                </h3>
+                                            </div>
+                                            <div class="BLOCK1_BASGORSEL BackgroundImage"
+                                                style="background-image: url('/PLAYSCRIBE_Frontend/Images/ARNAVUTLUKBAS.jpg')">
+                                                <h3 class="ParagrafBası ELyazısı">
+                                                    <i>Arnavutluk</i>
+                                                </h3>
+                                            </div>
+                                            <div class="BLOCK1_BASGORSEL BackgroundImage"
+                                                style="background-image: url('/PLAYSCRIBE_Frontend/Images/KARADAGBAS.jpg')">
+                                                <h3 class="ParagrafBası ELyazısı">
+                                                    <i>Karadağ</i>
+                                                </h3>
+                                            </div>
+                                            <div class="BLOCK1_BASGORSEL BackgroundImage"
+                                                style="background-image: url('/PLAYSCRIBE_Frontend/Images/KOSOVABAS.jpg')">
+                                                <h3 class="ParagrafBası ELyazısı">
+                                                    <i>Kosova</i>
+                                                </h3>
+                                            </div>
+                                            <div class="BLOCK1_BASGORSEL BackgroundImage"
+                                                style="background-image: url('/PLAYSCRIBE_Frontend/Images/HIRVATISTANBAS.jpg')">
+                                                <h3 class="ParagrafBası ELyazısı">
+                                                    <i>Hırvatistan</i>
+                                                </h3>
+                                            </div>
+                                            <div class="BLOCK1_BASGORSEL BackgroundImage"
+                                                style="background-image: url('/PLAYSCRIBE_Frontend/Images/SIRBISTANBAS.jpg')">
+                                                <h3 class="ParagrafBası ELyazısı">
+                                                    <i>Sırbistan</i>
+                                                </h3>
+                                            </div>
+                                            <div class="BLOCK1_BASGORSEL BackgroundImage"
+                                                style="background-image: url('/PLAYSCRIBE_Frontend/Images/BOSNAHERSEKBAS.jpg')">
+                                                <h3 class="ParagrafBası"
+                                                    style=" font-family: 'Dancing Script', cursive;">
+                                                    <i>Bosna-Hersek</i>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="DisplayFlex">
+                                            <hr class="hrEight">
+                                        </div>
+                                        <div class="Block1GecisGorsel_Part">
+                                            <div class="Block1GecisGorselDıv">
+                                                <h3 class="Block1AnimasyonBaslık ELyazısı">
+                                                    <i>DENEYİMLERİM</i>
+                                                </h3>
+                                                <img class="Block1GecisGorsel " src="/PLAYSCRIBE_Frontend/Images/Manzara1.jpg"
+                                                    alt="Background Image">
+    
+                                            </div>
+                                        </div>
+    
+                                        <div class="DisplayFlex">
+                                            <hr class="hrEight" style="margin-top: 30px;">
+                                        </div>
+    
+    
+                                        <div class="IlkDeneyim_Part">
+    
+                                            <div class="AcıklamaMetni"
+                                                style="width: 100%; height: 100%; position: relative;">
+                                                <div class="column" style="position: absolute;">
+                                                    <h3 class="ELyazısı METINBASLIK HiyerarsikYazı"
+                                                        style="color: red; text-shadow: 4px 4px 6px rgb(255, 0, 0);">
+                                                        <i>İLK YORUMUM</i>
+                                                    </h3>
+                                                    <p class="ParagrafBası HIKAYEyazısı ResimUstuMetin"
+                                                        >
+                                                        Balkan'ları gezmek şu zamana kadar yaşadığım en güzel ve
+                                                        eğlenceli deneyimlerden biriydi. Türkiye ile olan gerek
+                                                        kültür
+                                                        benzerlikleri gerek çoğrafi benzerlikleri benim orada hiç
+                                                        yabancılık çekmeme sebebiyet vermedi. Dünyayı gezmek
+                                                        isteyenlerin kesinlikle uğrayıp buradaki hem Osmanlı
+                                                        tarihini
+                                                        hem de Yugoslavya tarihini görmeleri ve geçmişte
+                                                        yaşanılanlardan
+                                                        ders çıkarmaları lazım. Özellikle Bosna-Hersek'te geçmişte
+                                                        yaşanılan karanlık soykırımın geçtiği yerleri görmek beni
+                                                        çok
+                                                        etkiledi.
+                                                    </p>
+                                                </div>
+                                                <div class="ResimliMetin BackgroundImage"
+                                                    style="background-image: url('/PLAYSCRIBE_Frontend/Images/Manzara2.jpg');">
+                                                </div>
+    
+                                            </div>
+                                        </div>
+    
+    
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="PAGE2BLOCK DisplayNone">
+                        <div class="BLOCK1 container-fluid PAGE2">
+                            <div class="column">
+    
+                                <div class="YunanistanTanitim">
+                                    <div class="container-fluid">
+                                        <div class="row" style="margin: 0;">
+                                            <div class="col-lg-5">
+                                                <h3 class="ELyazısı METINBASLIK">
+                                                    <i>YUNANİSTAN</i>
+                                                </h3>
+                                                <div class="AcıklamaMetni">
+                                                    <p class="YunanYazı ParagrafBası HIKAYEyazısı ">
+                                                        Açıkçası
+                                                        Yunanistan'ım bu
+                                                        kadar
+                                                        Türkiye'ye benzeyeceğini düşünmüyordum. Kültürel
+                                                        yapısını
+                                                        bir kenara bıraktığımızda aslında Türkler ve Yunanlılar
+                                                        arasında hasımlık bir nevi haısmlıktan öte sanki tatlı
+                                                        bir
+                                                        rekabet gibi orada konuştuğum birçok Yunanlı biz
+                                                        Türkler'e
+                                                        karşı gerçekten samimi sanki askerlik arkadaşıymışız
+                                                        gibi
+                                                        davrandı. Bu tarz Yunanlılarla geçirdiğim diyaloglar,
+                                                        bir o
+                                                        kadar da benim hoşuma gitti.</p>
+                                                </div>
+                                                <div class="YunanGorsel_Div">
+                                                    <div class="YunanGorsel BLOCK1_BASGORSEL BackgroundImage"
+                                                        style="background-image: url('/PLAYSCRIBE_Frontend/Images/YUNANISTAN1.jpg'); background-size: cover;">
+                                                        <h3 class="ParagrafBası">
+                                                            <i>KAVALA</i>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="YunanGorsel BLOCK1_BASGORSEL BackgroundImage"
+                                                        style="background-image: url('/PLAYSCRIBE_Frontend/Images/YUNANISTAN2.jpg');background-size: cover;">
+                                                        <h3 class="ParagrafBası">
+                                                            <i>SELANİK</i>
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-7">
+                                                <div class="YunanGorsel_Div" style="margin-top: 10px;">
+                                                    <div class="YunanGorsel BLOCK1_BASGORSEL BackgroundImage"
+                                                        style="background-image: url('/PLAYSCRIBE_Frontend/Images/YUNANISTAN3.jpg');  background-size: cover;">
+                                                        <h3 class="ParagrafBası">
+                                                            <i>SELANİK</i>
+                                                        </h3>
+                                                    </div>
+                                                    <div class="YunanGorsel BLOCK1_BASGORSEL BackgroundImage"
+                                                        style="background-image: url('/PLAYSCRIBE_Frontend/Images/YUNANISTAN4.jpg');  background-size: cover;">
+                                                        <h3 class="ParagrafBası">
+                                                            <i>SELANİK</i>
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="AcıklamaMetni" style="color: rgb(7, 130, 146);">
+                                                    <p class="YunanYazı ParagrafBası HIKAYEyazısı">
+                                                        Yunasitan'ın çoğrafyası ise zaten
+                                                        balkan toprağı olduğu
+                                                        için
+                                                        Türkiye'ye oldukça benziyor. İlk gezdiğimiz şehir olan
+                                                        Kavala biraz istisna da olsa şehir dizaynı olarak
+                                                        Brezilya'daki Favelalar ile Türkiye'deki Safranbolu
+                                                        Evlerinin minimalist bir karşı gibi diyebiliriz. Küçük
+                                                        bir
+                                                        şehir aynı kasaba gibi ancak sahili de bir o kadar
+                                                        güzel,
+                                                        yazları tam yürümek için süper diyebiliceğimiz cinsten.
+                                                        İkinci şehrimiz olan Selanik'te ise ilk olarak orada
+                                                        bulunan
+                                                        en eski kilise'lerden Agia Sofia Kilisesini gezdik, ismi
+                                                        ne
+                                                        gariptir ki Ayasofya camii ile aynı bir gönderme mi
+                                                        acaba,
+                                                        oradan da Atatürk'Ün doğduğu evi gezdik açıkçası çok
+                                                        kalabalık olduğu için pek bir şey anlayamadım. Oradan da
+                                                        şehir merkezini serbest zamanda güzelce gezdim ve şunu
+                                                        söyleyebilirim ki Selanik'in kenar mahalleleri ile
+                                                        İstanbul'un kenar mahalleleri arasında hiç bir fark yok.
+                                                        Yine de şehri beğendim diyebilirim. Oradan şehir
+                                                        dışındaki
+                                                        otelimize geçip Yunanistan maceramızı bu şekilde
+                                                        tamamladık.
+                                                    </p>
+    
+                                                </div>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="DisplayFlex">
+                                    <hr class="hrEight">
+                                </div>
+    
+                                <div  class="MakedonTanitim container-fluid">
+                                    <div class="row" style="height: 35%;">
+                                        <div class="col-lg-5">
+    
+                                            <div class="AcıklamaMetni"
+                                                style="width: 100%; height: 100%; position: relative;">
+                                                <div class="column" style="position: absolute;">
+                                                    <h3 class="ELyazısı METINBASLIK HiyerarsikYazı"
+                                                        style="color: red; text-shadow: 4px 4px 6px yellow;">
+                                                        <i>MAKEDONYA</i>
+                                                    </h3>
+                                                    <p class="ParagrafBası ResimUstuMetin HIKAYEyazısı MakedonYazı">
+                                                        Balkanlar'da
+                                                        sıradki
+                                                        durağımız Makedonya. Bu
+                                                        ülke aslında turda en çok bulunduğumuz ülke diyebilirim.
+                                                        Gerek
+                                                        doğası gerek muhteşem şehir tasarımları gerekse içerisindeki
+                                                        Türk sayısı olsun birçok konuda bu turdaki favori ülkelerim
+                                                        arasına kendini rahatlıkla baş sıraya koyar hele o Ohrid
+                                                        nasıl
+                                                        bir yerdi gerçekten aklım almıyor.</p>
+                                                </div>
+                                                <div class="ResimliMetin BackgroundImage"
+                                                    style="background-image: url('/PLAYSCRIBE_Frontend/Images/MAKEDONYA2.jpg') ">
+                                                </div>
+    
+                                            </div>
+    
+    
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="AcıklamaMetni"
+                                                style="width: 100%; height: 100%; position: relative;">
+                                                <div class="column" style="position: absolute;">
+                                                    <p
+                                                        class="ParagrafBası  ResimUstuMetin HIKAYEyazısı MakedonYazı">
+                                                        Makedonya'da ilk gezdiğimiz şehir
+                                                        Manastır'dı. Manastır aslında çok da spesifik bir dizayna
+                                                        sahip
+                                                        değil ancak en işlek caddelerinde bulunan ev dış mimarileri
+                                                        oldukça hoşuma gitti gerçekten sanki Makedonya'yı çok güzel
+                                                        anımsatıyorlardı. Orada gezdiğimiz en önemli yer hepinizin
+                                                        bildiği Atatür'ün mezun olduğu lise olan Manastır Askeri
+                                                        İdadisiydi. Orası liseden müzeye çevrilmişti ve sıradan
+                                                        müzeden
+                                                        çok bir farkı yoktu. Manastır'ı gezip Türk böreği yedikten
+                                                        sonra
+                                                        benim favori 3 şehrimden biri olan Ohrid'e geçtik. </p>
+                                                </div>
+    
+    
+    
+                                                <div class="ResimliMetin BackgroundImage"
+                                                    style="background-image: url('/PLAYSCRIBE_Frontend/Images/MAKEDONYA1.jpg');   -webkit-mask-image: -webkit-gradient(linear, left bottom, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1)));  border-radius: 0px 15px 15px 0px;">
+                                                </div>
+    
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                    <div class="row" style="height: 65%;">
+                                        <div class="col-lg-6">
+    
+                                            <div class="AcıklamaMetni"
+                                                style="width: 100%; height: 100%; position: relative;">
+                                                <div class="column" style="position: absolute;">
+                                                    <p class="ParagrafBası ResimUstuMetin HIKAYEyazısı MakedonYazı">
+                                                        Size
+                                                        Ohrid'i
+                                                        anlatmadan önce Ohrid'den sonra uğradığımız yerden bahsetmek
+                                                        istiyorum ismi Saint Naum. Burası ilk kiliselerden. Bu yerin
+                                                        oldukça yüksek rakımı olduğu için çok güzel manzaralar
+                                                        yakaladım
+                                                        özellikle Ohrid gölü'nün Kuzey tarafından da gölün ihtişamı
+                                                        insanın gözünü alıyor. Gerçekten çok güzel yere kilise
+                                                        kurmuşlar
+                                                        diyebilirim. Gelelim benim en sevdiğim 3 şehirden biri olan
+                                                        Ohrid'e. Ohrid gerçekten şehir dızaynıyla bir Balkan şehri
+                                                        olmaktan çok Sanki Batı Avrupa'da bir kıyı şehrini
+                                                        andırıyordu.
+                                                        Gerek şehir dizaynı olsun gerekse o Ohrid gölü'nün muhteşem
+                                                        manzarası olsun emekli olduktan sonra nerede yaşarsın diye
+                                                        sorsalar Ohrid sayacağım şehirlerden biri olur. Evet sadece
+                                                        güzel olması değil aynı zamanda oldukça dingin bir atmosfere
+                                                        de
+                                                        sahip olması buna bir etken. Ohrid çok büyük bir şehir
+                                                        değil gezilmesi gereken güzel bir meydanı vardı, onun
+                                                        dışında
+                                                        tarihi bir sokağı vardı ve orası oldukça hoşuma gitmişti.
+                                                        Ha,
+                                                        birde muhteşem bir sahili vardı, bakmaya doyum olmazdı.
+                                                        Ohrid'İ
+                                                        gezdikten sonra tur olarak Ohrid
+                                                        gölünde bir tekne turu yaptık gerçekten çok güzeldi. Eğer
+                                                        bir
+                                                        gün
+                                                        Balkan'lara yolunuz düşerse kesinlikle ama kesinlikle
+                                                        Ohrid'i
+                                                        ziyaret etmelisiniz ve tekne turu yapmalısınız, pişman
+                                                        olmazsınız.</p>
+                                                </div>
+    
+                                                <div class="ResimliMetin BackgroundImage"
+                                                    style="background-image: url('/PLAYSCRIBE_Frontend/Images/MAKEDONYA4.jpg') ">
+                                                </div>
+                                            </div>
+    
+    
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="AcıklamaMetni"
+                                                style="width: 100%; height: 100%; position: relative;">
+                                                <div class="column" style="position: absolute;">
+                                                    <p
+                                                        class="ParagrafBası  ResimUstuMetin HIKAYEyazısı MakedonYazı">
+                                                        Geldik Üsküp'e. Aslında Üsküp bizim bu turda gezdiğimiz son
+                                                        şehirdi; yani biz Ohrid üzerinden Üsküp'e uğramadık direkt
+                                                        Arnavutluk'a geçtik, en son gün Kosova üzerinden
+                                                        Makedonya'ya
+                                                        giriş yapıp Üsküp'e uğradık. Üsküp'ü iki kelimeyle
+                                                        özetleyecek
+                                                        olsam kesinlikle "HEYKELLER ŞEHRİ" derdim çünkü Üsküp
+                                                        meydanında
+                                                        o kadar çok heykel var ki saymakla bitmez gerçekten. İşin
+                                                        şakası
+                                                        bu heykellerin çoğu yabancı ülkelerde üretilmiş. Yine şunu
+                                                        söyleyebilirim ki Üsküp bu heykellerle beraber kendisine bir
+                                                        heybet katıyordu. Bana göre en görkemli şehir Üsküp'tü.
+                                                        Mimari tasarımları antik çağdaki tarihi eserleri
+                                                        anımsatıyordu,
+                                                        bu yüzden olduça hoşuma gitmişti. Hatta Üsküp'ü
+                                                        dolaşırken Makedonya bağımsızlığını anlatan bir müzeyi de
+                                                        gezme
+                                                        şansını elde ettim. Bu müzeyi gezdiğimde gerçekten o
+                                                        zamanları o
+                                                        kadar güzel yansıtmışlar ki bir tarihi müzenin nasıl olması
+                                                        gerektiğine dair çok güzel bir örnekti diyebilirim. Orada
+                                                        bulunan geleneksel sokakları gezerken birçok Türkle veya
+                                                        Türkçe
+                                                        konuşan kişiyle karşılaşabilirsiniz, o yüzden İngilizce
+                                                        bilmeden
+                                                        de Üsküp'te çok sıkıntı yaşamazsınız. </p>
+                                                </div>
+    
+    
+    
+                                                <div class="ResimliMetin BackgroundImage"
+                                                    style="background-image: url('/PLAYSCRIBE_Frontend/Images/MAKEDONYA3.jpg');   -webkit-mask-image: -webkit-gradient(linear, left bottom, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1)));  border-radius: 0px 15px 15px 0px;">
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="PAGE3BLOCK DisplayNone">
+                        <div class="BLOCK1 container-fluid PAGE3">
+                            <div class="column">
+                                <div class="ArnavutTanitim">
+                                    <div class="container-fluid" style=" height: 100%;">
+                                        <div class="column" style="margin: 0;">
+                                            <div style="height: 57%">
+                                                <div class="AcıklamaMetni"
+                                                    style="width: 100%; height: 100%; position: relative;">
+                                                    <div class="column" style="position: absolute;">
+                                                        <h3 class="ELyazısı METINBASLIK HiyerarsikYazı"
+                                                            style="color: rgb(255, 0, 0); text-shadow: 4px 4px 6px rgb(0, 0, 0)">
+                                                            <i>ARNAVUTLUK</i>
+                                                        </h3>
+                                                        <p
+                                                            class="ArnavutYazı ParagrafBası ResimUstuMetin HIKAYEyazısı ">
+                                                            Ohrid ve
+                                                            Saint Naum'U gezdikten sonra
+                                                            Arnavutluk'a vardık. Arnavutluk'ta ilk başta başkent
+                                                            Tiran'ı
+                                                            gezdik. Tiran açık ara bu Balkan
+                                                            turundaki en modern şehir diyebilirim. Tiran özellikle
+                                                            modern olmasında dolayı çok fazla
+                                                            gökdelen ve yeni nesil yapılara sahipti, ancak bu demek
+                                                            değildir tarihi bir yanı yok, hayır tam
+                                                            aksine gezilecek tarihi yerler de vardı. Tiran'ın
+                                                            mimarisi
+                                                            bakımından hoşuma gitti. Ben şehirleri
+                                                            sevme bakımından biraz değişik biriyim, bana modern ve
+                                                            cyberpunk temalı şehirler daha çok
+                                                            cezbediyor. Bu yüzden Tiran'ın şehir dizaynı da beni
+                                                            cezbetti. Tiran'da özellikle yürüyüş yapmak için
+                                                            oldukça fazla alan var. Tiran'ın sokak tarzı birazcık
+                                                            Bağdat
+                                                            Caddesini andırmıyor da değildi. Özellikle
+                                                            her hafta bir ülkenin kültürüne dair bazı etkinliklerin
+                                                            düzenlendiği geleneksel bir sokak var, orası
+                                                            cidden Bağdat Caddesini andırıyordu. Tiran'ı da güzel
+                                                            bir
+                                                            şekilde gezdikten sonra İşkodra'ya doğru
+                                                            yola koyulduk.</p>
+                                                    </div>
+                                                    <div class="ResimliMetin BackgroundImage"
+                                                        style="background-image: url('/PLAYSCRIBE_Frontend/Images/ARNAVUTLUK1.jpg');">
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div style="height: 43%">
+                                                <div class="AcıklamaMetni"
+                                                    style="width: 100%; height: 100%; position: relative;">
+                                                    <div class="column" style="position: absolute;">
+                                                        <p
+                                                            class="ArnavutYazı ParagrafBası ResimUstuMetin HIKAYEyazısı ">
+                                                            Akşamüstü
+                                                            İşkodra'ya vardığımızda orayı
+                                                            benim arkadaşlarla beraber gezmiştik. Açıkçası
+                                                            İşkodra'nın
+                                                            konuşulacak bir tarafı yok. Geleneksel
+                                                            birkaç adet sokağı vardı, oraları güzelce dolaştık.
+                                                            Oradaki
+                                                            sokaklar biraz Belgrad'daki sokaklara
+                                                            benziyordu. Onun dışında Arnavutluk için gözlemlediğim
+                                                            bir
+                                                            başka şey ise ne kadar cami varsa o kadar
+                                                            kilisenin olmasıydı. Normalde Arnavutluk'un 58%'i
+                                                            müslüman,
+                                                            18%'i hristiyan, ancak bu kadar orantılı
+                                                            bir şekilde hem caminin hem de kilisenin inşa edilmiş
+                                                            olması
+                                                            şaşırttı açıkçası. Bu arada Balkan
+                                                            ülkelerinde de ezan okunuyor, tıpkı Türkiye'deki gibi.
+                                                            Yani
+                                                            oradaki halkın çoğu hristiyanlığa veya
+                                                            başka dinlere asimile olsa da oradaki müslüman halk
+                                                            kendisini korumayı başarabilmiş.</p>
+                                                    </div>
+                                                    <div class="ResimliMetin BackgroundImage" style="background-image: url('/PLAYSCRIBE_Frontend/Images/ARNAVUTLUK2.jpg'); -webkit-mask-image:
+                                              -webkit-gradient(linear, left bottom, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1)));
+                                             border-radius: 0px 15px 15px 0px;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="DisplayFlex">
+                                    <hr class="hrEight">
+                                </div>
+                                <div class="KaradagTanitim container-fluid">
+                                    <div class="column">
+                                        <div class="KaradagBaslık">
+                                            <h3 class="ELyazısı METINBASLIK"
+                                                style="color: rgb(213, 243, 82); text-shadow: 4px 4px 6px rgb(245, 10, 10); text-align: center;">
+                                                <i>KARADAĞ</i>
+                                            </h3>
+                                        </div>
+                                        <div class="KaradagContent DisplayFlex">
+    
+                                            <div class="AcıklamaMetni"
+                                                style="width: 100%; height: 100%; z-index: 2;">
+                                                <div class="container-fluid" style="position: absolute;">
+                                                    <div class="row" style="font-size: 13px;">
+                                                        <div class="col-lg-6">
+                                                            <p class="ParagrafBası HIKAYEyazısı KaradagYazı">
+                                                                Sabah işkodra'dan ayrılıp Karadağ'a doğru yola
+                                                                çıktık
+                                                                Arnavutluk ve Karadağ arası oldukça dağlı bir yoldu,
+                                                                muhtemelen ülkenin ismi de buna atıftır. İlk ve tek
+                                                                uğradığımız yer Budva şehriydi oradan da Kotor
+                                                                üzerinden
+                                                                Hırvatistan'a uğradık ancak Kotor'un manzarasını
+                                                                sadece
+                                                                seyretme imkanı bulabildik. Karadağ küçük bir ülke
+                                                                olmasına rağmen başta deniz tatil yapmak için Balkan
+                                                                ülkeleri arasındaki en büyük adaylardan biridir.
+                                                                Çünkü
+                                                                gerek manzarası olsun gerek Adriyatik Denizi'nin
+                                                                mükemmeliği olsun yazları Akdeniz dışında ayrı bir
+                                                                alternatif sunuyor. Bu turda hiç yüzme imkanı
+                                                                bulamamam
+                                                                da beni en çok üzen şeylerden biri oldu. Eğer Balkan
+                                                                turu yapmak istiyorsanız ne olur ne olmaz
+                                                                mayolarınızı
+                                                                yanınızda bulundurun, çünkü yüzülebilecek o kadar
+                                                                çok
+                                                                yer varki...
+                                                            </p>
+                                                            <p class="ParagrafBası HIKAYEyazısı KaradagYazı">
+                                                                Budva şehri Bodrum'a gerçekten benziyordu. Bunu
+                                                                sakın
+                                                                fiyatların pahalılığı olarak algılamayın ,
+                                                                Dubrovnik'te
+                                                                fiyatlar neredeyse yarı yarıya daha pahalıydı,
+                                                                şehrin
+                                                                dizaynı atmosferi ve en önemlisi de Adriyatik
+                                                                Denizi'nin
+                                                                görüntüsü ile benziyordu. Budva'yı ilk olarak şehrin
+                                                                göbeği sayılabilecek tarihi dar sokakları olan bir
+                                                                kaleyi gezerek başaldık. Bu yerdeki sokaklar oldukça
+                                                                dardı ve sanki bir labirent gibiydi. Burayı gezerken
+                                                                Yolu şaşırıp başladığın noktaya dönmen çok olası. O
+                                                                yeri
+                                                                gezditen sonra oranın plajlarını da gezdim ve
+                                                                plajları
+                                                                da denizi de oldukça güzeldi ancak herhalde
+                                                                Üsküp'ten
+                                                                sonra gezdiğim en sıcak şehir de Budva'ydı
+                                                                diyebilirim,
+                                                                oldukça kavurucu bir sıcak vardı. Karadağ'ı gezerken
+                                                                bir
+                                                                başka dikkatimi çeken şey ise arabaların çoğunun
+                                                                Sırbistan'dan gelmesiydi. Ne gariptir ki biz
+                                                                Belgrad'ı
+                                                                gezerken ana otoyolun aydınlatma ışıklarında da
+                                                                Karadağ
+                                                                bayrakları asılıydı. herhalde bu iki ülke arasında
+                                                                kültürel bir ilişki söz konusu.
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-lg-6 DisplayFlex"
+                                                            style="align-items:center; flex-direction: column;">
+                                                            <p class="ParagrafBası HIKAYEyazısı KaradagYazı">
+                                                                Budva'yı gezdikten sonra sıradaki yerimiz Kotor'du
+                                                                ancak
+                                                                maalesefki Kotor'u gezemedik sadece içinden geçtik,
+                                                                bunun sebebi ise Kotor üzerinden Hırvatistan'ın bir
+                                                                şehri olan Dubrovnik'e uğrayacak olmamızdı. Eğer
+                                                                Kotor'u
+                                                                gezebilseydik muhtemelen Dubrovnik'i gezemeyecektik.
+                                                            </p>
+                                                            <p class="ParagrafBası HIKAYEyazısı KaradagYazı">
+                                                                Her ne kadar Kotor'u gezemesekte içinden geçtiğimiz
+                                                                için
+                                                                o eşsiz manzarayı görme imkanı bulduk. Normalde ben
+                                                                bu
+                                                                turda babama ait olan fotoğraf makinesiyle tam 1990
+                                                                tane
+                                                                fotoğraf çektim ve herhalde en çok fotoğrafı bu
+                                                                yolculuk
+                                                                sırasında bugün çektim diyebilirim. Sırf o eşsiz
+                                                                manzaralar için bile Karadağ'a tekrar gelirim. Bu
+                                                                fotoğrafların bir kaçı şu an arka planda. Siz de
+                                                                onlara
+                                                                bakarak muhtemelen bana hak vereceksiniz.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="GridGorselMain">
+                                                <div class="GridGorsel BackgroundImage">
+                                                </div>
+                                                <div class="GridGorsel BackgroundImage">
+                                                </div>
+                                                <div class="GridGorsel BackgroundImage">
+                                                </div>
+                                                <div class="GridGorsel BackgroundImage">
+                                                </div>
+                                                <div class="GridGorsel BackgroundImage">
+                                                </div>
+                                                <div class="GridGorsel BackgroundImage">
+                                                </div>
+                                                <div class="GridGorsel BackgroundImage">
+                                                </div>
+                                                <div class="GridGorsel BackgroundImage">
+                                                </div>
+                                                <div class="GridGorsel BackgroundImage">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="PAGE4BLOCK DisplayNone">
+                        <div class="BLOCK1 container-fluid PAGE4">
+                            <div class="row">
+                                <div class="HırvatTanitim">
+                                    <div class="column" style="position: relative;">
+                                        <div class="CaprazResimYazı" style="z-index: 2; position: absolute;">
+                                            <div style="height: 10%;">
+                                                <h3 class="ELyazısı METINBASLIK"
+                                                    style="color: rgb(24, 136, 211); text-shadow: 4px 4px 6px rgb(201, 72, 72); text-align: center;">
+                                                    <i>HIRVATİSTAN</i>
+                                                </h3>
+                                            </div>
+                                            <div style="height: 90%;">
+                                                <div class="row">
+                                                    <div>
+                                                        <p class="ParagrafBası HIKAYEyazısı HırvatYazı">
+                                                            Ve evet, bu balkan turundaki favori şehrim Dubrovnik'e
+                                                            yani
+                                                            Hırvatistan'a geldik. Bu şehri bu kadar sevmemin en
+                                                            büyük
+                                                            sebebi; kendi spesifik şehir dizaynı ve tarihi yanı
+                                                            diyebilirim. Kah dar sokakları Kah kalabalık sokakları
+                                                            ile
+                                                            Ohrid ile birlikte Balkan şehrinden çok sanki Batı
+                                                            Avrupa'daki şehirler gibiydi. Dubrovnik'in az önce de
+                                                            söylediğim gibi oldukça kalabalık sokakları vardı, zaten
+                                                            bu
+                                                            sokaklarda şehrin en işlek ve en meşhur sokaklarıydı.
+                                                            trafiğe kapalı olması da aynı zamanda kalabalık olmasına
+                                                            sebebiyet veriyordu tabiki ancak ben bu kalabılığı bu
+                                                            şehre
+                                                            oldukça yakıştırdım da diyebilirim. O tarihi yerlerdeki
+                                                            insan sesleri bir yandan çan sesi gerçekten çok güzel
+                                                            bir
+                                                            ambiyans veriyordu. Yaptığım en büyük hata ise o günün
+                                                            bir
+                                                            gün öncesinde fotoğraf makinesinin bataryasını şarj
+                                                            etmeyi
+                                                            unutmuş olmamdı. Yüzlerce fotoğraf çektim ancak bunların
+                                                            neredeyse hepsini telefonumla çektim. Bu hatayı
+                                                            gerçekten en
+                                                            yapmamam gereken şehirde yapmış olsam da telefondan
+                                                            mümkün
+                                                            olabildiğince net bir şekilde fotoğraflar çekerek bu
+                                                            hatamı
+                                                            telafi etmeye çalıştım.</p>
+                                                        <P class="ParagrafBası HIKAYEyazısı HırvatYazı"> Şehre geri
+                                                            dönecek olursak Budva'da
+                                                            bahsetmiştim, bu şehir gerçekten çok pahalıydı. Basit
+                                                            bir
+                                                            soğuk çaya 3 euro vermiştim, vermek zorundaydım çünkü
+                                                            şehri
+                                                            dolaşmaktan hem bacaklarım uyuşmuştu hem de biraz
+                                                            tansiyonum
+                                                            düşmüştü, ancak yine şehri dolaşmak bana büyük bir zevk
+                                                            verdi, genellikle sokakları dolaşsam da bazı yerlerin
+                                                            içini
+                                                            de dolaştım. Özellikle bir müzeyi gezerken müzenin
+                                                            zemininde
+                                                            demirle kaptılmış bazı delikler vardı ve bu deliklerin
+                                                            açık
+                                                            yerlerinden ne gördüğümü tahmin edin bakalım. Muhtemlen
+                                                            tahmin edemediniz, bu müzeinin altında bir nevi madeni
+                                                            paralar dağı vardı. inanmayabilirsiniz ancak görüntüsü
+                                                            arkada, ilk başta anlayamadım ne olduğunu ancak iyice
+                                                            baktığımda gerçekten de madeni paralar vardı. büyük bir
+                                                            depo
+                                                            olduğunu düşünüyorum. İyice Dubrovnik'i gezdikten sonra
+                                                            o
+                                                            akşam muhteşem Hırvatistan ovaları içerisinden
+                                                            Bosna-Hersek'e doğru yola koyulduk. Burada muhteşem
+                                                            ovalar
+                                                            demişken ciddi ciddi muhteşem ovalar, Balkan'Larda
+                                                            görüğüm
+                                                            en güzel tarım arazilerine açık ara Hırvatistan sahipti.
+                                                            Ben
+                                                            gerçekten gördüğüm o yerlerin karşısında gözlerime
+                                                            inanamadım. Muhteşem yerlerdi gerçekten. Eğer
+                                                            Hırvatistan'a
+                                                            uğrarsanız Güney tarafına inip Dubrovnik'i ve o eşsiz
+                                                            ova
+                                                            manzaralarını görmelisiniz.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid" style="height:  50%; z-index: 1; padding: 0;">
+                                            <div class="row" style="position: relative;">
+                                                <div  class="CaprazResimMain col-lg-6">
+                                                    <div class="ResimliMetin CaprazResim BackgroundImage" style="background-image: url('/PLAYSCRIBE_Frontend/Images/HIRVATISTAN1.jpg');
+                                                    border-radius: 15px 0px 0px 15px; opacity: 1;">
+                                                    </div>
+                                                </div>
+                                                <div class="CaprazResimMain col-lg-6">
+                                                    <div class="ResimliMetin CaprazResim BackgroundImage"
+                                                        style="background-image: url('/PLAYSCRIBE_Frontend/Images/HIRVATISTAN2.jpg'); 
+                                                   border-radius: 0px 15px 15px 0px; -webkit-mask-image: -webkit-gradient(linear, left bottom, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1))); opacity: 0;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="height: 5%;"></div>
+                                        <div class="container-fluid" style="height: 50%; z-index: 1; padding: 0;">
+                                            <div class="row" style="position: relative;">
+                                                <div class="CaprazResimMain col-lg-6">
+                                                    <div class="ResimliMetin CaprazResim BackgroundImage" style="background-image: url('/PLAYSCRIBE_Frontend/Images/HIRVATISTAN3.jpg'); 
+                                                     border-radius: 15px 0px 0px 15px; opacity: 0;">
+                                                    </div>
+                                                </div>
+                                                <div class="CaprazResimMain col-lg-6">
+                                                    <div class="ResimliMetin CaprazResim BackgroundImage"
+                                                        style="background-image: url('/PLAYSCRIBE_Frontend/Images/HIRVATISTAN4.jpg');
+                                                     border-radius: 0px 15px 15px 0px; -webkit-mask-image: -webkit-gradient(linear, left bottom, right bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1))); opacity: 1;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="DisplayFlex">
+                                    <hr class="hrEight">
+                                </div>
+                                <div  class="BosnaTanitim container-fluid">
+                                    <div class="column">
+                                        <div style="height: 100%;" class="DisplayFlex">
+                                            <div style="height: 100%; width: 90%; z-index: 2; position: absolute;">
+                                                <div style=" margin: 5px;">
+                                                    <h3 class="ELyazısı METINBASLIK"
+                                                        style="color: rgb(38, 40, 199); text-shadow: 4px 4px 6px rgb(177, 185, 53); text-align: center;">
+                                                        <i>BOSNA-HERSEK</i>
+                                                    </h3>
+                                                </div>
+                                                <div class="container-fluid gridBosna">
+                                                    <div class=" DefaultResimUstu BackgroundImage"
+                                                        style="background-image:url('/PLAYSCRIBE_Frontend/Images/BOSNAHERSEK5.jpg') ;">
+                                                        <p class="ParagrafBası HIKAYEyazısı  BosnakYazı">
+                                                            Bosna-hersek'e artık geldik. Arka planı bordo
+                                                            yaptım çünkü. Srebrenitsa'da ve daha bir çok
+                                                            yerde yaşanılanları ,o zor zamanları her ne
+                                                            kadar yaşamasam da, iliklerime kadar hisettim.
+                                                            Bundan mütevellit arka planı bu yaşanılan
+                                                            olaylara ithafen kan renginde yaptım. Zamanında
+                                                            o yaşanılan olayları size anlatıp moralinizi
+                                                            bozmak istemiyorum, o yüzden sadece
+                                                            Bosna-Hersek'te nereleri görüp gezdiğimizi
+                                                            anlatacağım.</p>
+                                                    </div>
+                                                    <div class=" DefaultResimUstu BackgroundImage"
+                                                        style="background-image:url('/PLAYSCRIBE_Frontend/Images/BOSNAHERSEK1.jpg') ;">
+                                                        <p class="ParagrafBası HIKAYEyazısı BosnakYazı">
+                                                            Bosna-hersek'te bilinen popüler yerlere
+                                                            uğramadan önce ilk başta Osmanlı'dan kalma köy
+                                                            olan Poçitel Köy'ünü gezdik. Gerçekten tarihi
+                                                            yapısıyla Osmanlı mimarisi camisiyle Osmanlı
+                                                            köylerini andırıyordu. O köyün tepesinde bir
+                                                            kale vardı. Kaleye ulaşmak için bayağı bir dik
+                                                            yol çıktım ama o kale içinden yakaladığım
+                                                            manzaralar için değdiğini düşünüyorum özellikle
+                                                            yanında akan Neretva Nehri ile köyün manzarası
+                                                            muhteşemdi. Köyü gezdikten sonra sıradaki
+                                                            durağımız popüler bir yer olan Blagaj
+                                                            Tekkesiydi.</p>
+                                                    </div>
+                                                    <div class="DefaultResimUstu BackgroundImage"
+                                                        style="background-image:url('/PLAYSCRIBE_Frontend/Images/BOSNAHERSEK3.jpg') ;">
+                                                        <p class="ParagrafBası HIKAYEyazısı BosnakYazı">
+                                                            Geldik Mostar'a. Mostar oldukça sıcak bir
+                                                            şehirde hatta bu yüzden dünyaca ünlü olan Mostar
+                                                            köprüsünden nehire insanlar atlıyordu, gerçi bu
+                                                            tamamen show da o sıcakta nehre atlamak içinde
+                                                            güzel bir bahane aynı zamanda. Köprü demişken
+                                                            Mosat'da aslında birden çok köprü var tabikide
+                                                            en büyük olan ve en ünlüsü de tarihi olan o
+                                                            köprüydü. Köprünün de ikonik görüntüsü ile
+                                                            Mostar, bence bu turdaki en çok Osmanlı
+                                                            mimarisine benzeyen şehirdi diyebilirim.
+                                                            Özellikle o tarihi sokakları bildiğin kapalı
+                                                            çarşı değil de açık çarşı gibi bir pasaj
+                                                            havasındaydı. Mostar'ı da güzel bir şekilde
+                                                            gezdikten sonra esas durağımıza yan başkent
+                                                            Saraybosna'ya doğru yola koyulduk.
+                                                        </p>
+                                                    </div>
+    
+                                                    <div class=" DefaultResimUstu BackgroundImage"
+                                                        style="background-image:url('/PLAYSCRIBE_Frontend/Images/BOSNAHERSEK2.jpg') ;">
+                                                        <p class="ParagrafBası HIKAYEyazısı BosnakYazı">
+                                                            Poçitel köy'Ünden sonra Blagaj Tekkesi'ne
+                                                            uğradık. Açıkçası Blagaj Tekkesi'nin konumu o
+                                                            kadar güzel bir yerdeki. Sadece bunun manzara
+                                                            veya görsel güzellik olarak düşünmeyin coğrafi
+                                                            olarak da o kadar güzel bir yere kurulmuş ki
+                                                            oranın serinliğine Mostar'da hasret kaldım
+                                                            diyebilirim. Bu tekekyi geçmişte inşa eden
+                                                            dervişler ve şeyhler gerçekten muhteşem bir yer
+                                                            seçmişler ancak her ne kadar tekke dışarıdan
+                                                            güzel dursa da içinin restore edilmiş olması o
+                                                            ambiyansı biraz bozmuş. Daha iyi durabilirmiş
+                                                            diye düşünüyorum. Yine de ben oranın havasını
+                                                            solumak için bile tekrar giderim. Blagaj'dan
+                                                            çıktıktan sonra sıradaki uğrayacağımız yer
+                                                            Mostar.</p>
+                                                    </div>
+                                                    <div class=" DefaultResimUstu BackgroundImage"
+                                                        style="background-image:url('/PLAYSCRIBE_Frontend/Images/BOSNAHERSEK4.jpg'); width: 100%; position: absolute; top: 100%;">
+                                                        <p class="ParagrafBası HIKAYEyazısı BosnakYazı">
+                                                            SarayBosna... Gerçekten o Kovaçi Şehitliği benim
+                                                            tüylerimi diken diken oradaki şehit edilen o
+                                                            kadar insanın mezar taşları beni gerçekten çok
+                                                            etkiledi. Gerçekten ağlamaklı oldum o atmosferi
+                                                            görünce, kendimi gerçekten zor tutmuştum.
+                                                            Aslında şehirde en son burayı gezmiştik ancak
+                                                            ilk burayı anlatmam gerekiyor çünkü müslüman
+                                                            olun veya olmayın Türk olun veya Sırp olun
+                                                            farketmez oradaki mezarlar insan olan herkesin
+                                                            gerçekten vicdanına o kadar ağır basıyor ki
+                                                            anlatamam. Daha fazla bu yerin ağırlığını
+                                                            anlatıp sizi de üzmek istemiyorum ve
+                                                            Saraybosna'nın nasıl bir yer olduğundan
+                                                            bahsetmek istiyorum. Saraybosna ünlü
+                                                            caddeleriyle tarihi Osmanlı caddesiyle gerçekten
+                                                            harika bir şehirdi. Hatta Tarihi Osmanlı
+                                                            caddesinin Mulla Mustafa Caddesiyle birleşimi ve
+                                                            esas süpriz olan bu birleşim yerinin merkezinde
+                                                            77 yıldır yanan ateşin olması gerçekten muhteşem
+                                                            bir dokunuş katmıştı şehre. Özellikle bu
+                                                            birleşimin ilerisinde başlayan Marsala Tita
+                                                            caddesi İstanbul'daki moda caddelerinden
+                                                            farksızdı. Saraybosna'yı gezerken farkettiğim
+                                                            bir başka detay ise burada yaşayan müslümanların
+                                                            tarihi kiliselere zarar vermeyip o kiliselerin
+                                                            hala günümüze kadar ayakta durmasıydı.
+                                                            İnsanlarının misafirperverliği bir yana dursun
+                                                            gerçekten buradaki insanlar tarihi eserlere de
+                                                            oldukça saygı duyuyordu. Bu konuda açıkça benim
+                                                            bu turda en çok sevdiğim insanlar Boşnaklar
+                                                            oldu. Saraybosna'yı da güzel bir şekilde
+                                                            gezdikten sonra şehrin dışında bulunan
+                                                            otellerimize geçtik. Sırdaki durağımız Sırbistan
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="KanlıDiv">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                    <div class="PAGE5BLOCK DisplayNone">
+                        <div class="BLOCK1 container-fluid PAGE5">
+                            <div class="row">
+                                <div class="Sırbistantanitim">
+                                    <div class="column">
+                                        <div class="container-fluid" style="position: absolute; height: 100%;">
+                                            <h3 class="ELyazısı METINBASLIK"
+                                                style="color: rgb(255, 0, 0); text-shadow: 4px 4px 6px rgb(0, 3, 202); position: relative; z-index: 2;">
+                                                <i>SIRBİSTAN</i>
+                                            </h3>
+                                            <p class="ParagrafBası HIKAYEyazısı SırpYazı HiyerarsikYazı">
+                                                Saraybosna'dan uzun bir yolculukla Sırbistan'a girdik, oradan da
+                                                başkent
+                                                Belgrad'a geçtik. Gerçekten çok uzun bir yolculuktu. Özellikle ben
+                                                Bosna-Hersek Sırbistan sınırında çok bekleyeceğimi düşünüyordum
+                                                ancak
+                                                çok fazla beklemeden yaklaşık olaraka 8 9 saat bir yolculukla ancak
+                                                varabildik Belgrad'a.
+                                            </p>
+                                            <p class="ParagrafBası HIKAYEyazısı SırpYazı HiyerarsikYazı">
+                                                "Tuna Nehri akmam diyor. Etrafımı yıkmam diyor, şanı büyük Osman
+                                                paşa
+                                                Plevne'den çıkmam diyor". Bunu söylememin sebebi Tuna Nehri üzerine
+                                                kurulan bu şehrin kuzey tarafı Orta Avrupa olarak sayılırken güney
+                                                tarafı Balkan tarafı olarak sayılır, tabi bu coğrafi olarak yoksa
+                                                Sırbistan da bir Balkan ülkesi. Belgrad, gezdiğim şehirler arasında
+                                                en
+                                                çok savaş görmüş şehirdi. Bu yüzden tarihi de oldukça sağlam
+                                                diyebiliriz. İlk başta Belgrad'ın sembollerinden olan Belgrad
+                                                kalesini
+                                                gezdik ve gün batımıyla beraber Tuna Nehri ve Modern Belgrad'In o
+                                                eşsiz
+                                                manzarasına bakmaya doyamadım cidden. O kadar güzel bir manzaraya
+                                                sahip
+                                                ki o manzarayı bir de gün batımında yakalamak herhalde Belgrad'a
+                                                gidip
+                                                yapabileceğin en iyi şeydi. Parkı güzel bir şekilde dolaştıktan
+                                                sonra
+                                                Belgrad'ın en kalabalık ve popüler meydanına indik trafiğe kapalı
+                                                bir
+                                                yer olması da o meydanın ambiyansını muhteşemleştiriyordu. O yerde
+                                                arkadaşlarımla beraber en az 3 saat dolaşmışızdır artı olaraka
+                                                otelimizin de bu meydana yakın bir yerde olması çok büyük bir
+                                                avantaj
+                                                sağlıyordu bize. Belgrad'ı eşsiz kılan bir başka unsursa yürüyüş
+                                                yolları
+                                                diyebilirim. Pürüzsüz taşlarla döşenmiş olmasından dolayı Herhalde
+                                                bu
+                                                turdaki en pürüzsüz ve düzenli yürüyüş yollarına Belgrad sahipti
+                                                diyebilirim. Bu arada yürüyüş yolu diyorum çünkü en güzel otoyollar
+                                                Hırvatistan'daydı. Belgrad'ı da güzel bir şekilde gezip otellerimize
+                                                döndükten sonra yarın sabah güzergahımız Kosova'ydı.
+                                            </p>
+                                        </div>
+                                        <div class="row DisplayFlex"
+                                            style="justify-content: space-around; flex-direction: row; position:absolute;">
+                                            <div class="SırpSenkroResim BackgroundImage">
+                                            </div>
+                                            <div class="SırpSenkroResim BackgroundImage">
+                                            </div>
+                                            <div class="SırpSenkroResim BackgroundImage">
+                                            </div>
+                                            <div class="SırpSenkroResim BackgroundImage">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="DisplayFlex">
+                                    <hr class="hrEight">
+                                </div>
+                                <div class ="KosovaTanitim">
+                                    <div class="container-fluid" style="height: 100%;">
+                                        <div class="column" style="margin: 0;">
+                                            <div style="height: 250px;">
+                                                <div class="AcıklamaMetni"
+                                                    style="width: 100%; height: 100%; position: relative;">
+    
+                                                    <div class="column" style="position: absolute;">
+                                                        <h3 class="ELyazısı METINBASLIK HiyerarsikYazı"
+                                                            style="color: rgb(255, 238, 0); text-shadow: 4px 4px 6px rgb(19, 22, 187);">
+                                                            <i>KOSOVA</i>
+                                                        </h3>
+                                                        <p
+                                                            class="ParagrafBası ResimUstuMetin HIKAYEyazısı KosovaYazı">
+                                                            Belgrad'dan sonra Sırbistan'dan aslında Üsküp'e
+                                                            uğrayacaktık
+                                                            ancak yolculuk çok uzun olacağından ilk başta Kosova'da
+                                                            durup gece Üsküp'e geçtik. Yani Üsküp'ü saymazsak son
+                                                            gezdiğimiz ülke Kosova'ydı. Aslında Bulgaristan da
+                                                            bulunduk
+                                                            Türkiye'ye geçerken ancak orayı gezmdeğimiz için orası
+                                                            için
+                                                            herhangi bir şey anlatmayacağım. Kosava'da iki yeri
+                                                            gezdik
+                                                            biri başkent Prestine'ye yakın bir yer olan Sultan I.
+                                                            Murad'ın türbesi, ikinci yer Prizren. Normalde ben
+                                                            Prestine'yi de gezmek istiyordum ancak Pristine
+                                                            Avrupa'daki
+                                                            en kötü başkent seçilmiş olduğundan artı olarak gezilcek
+                                                            çok
+                                                            bir yer olamdığından direk Kosova'nın en çok gezilen
+                                                            yeri
+                                                            olan Prizren'i gezdik.
+                                                        </p>
+                                                    </div>
+                                                    <div class="ResimliMetin BackgroundImage" style="background-image: url('/PLAYSCRIBE_Frontend/Images/KOSOVA1.jpg'); -webkit-mask-image:
+                                              -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1)));
+                                             border-radius: 15px 15px 15px 15px;"></div>
+                                                </div>
+                                            </div>
+                                            <div style="height: 250px;">
+                                                <div class="AcıklamaMetni"
+                                                    style="width: 100%; height: 100%; position: relative;">
+                                                    <div class="column" style="position: absolute;">
+                                                        <p
+                                                            class="ParagrafBası ResimUstuMetin HIKAYEyazısı KosovaYazı">
+                                                            Prizren öyle çok da ahım şahım bir yer değildi. Sadece
+                                                            meydanı Ohrid'e benziyordu onun dışında çok da güzel bir
+                                                            yanı yoktu. He birde orada bulunan tarihi camiyle şehrin
+                                                            en
+                                                            işlek yerinin manzarası gayet güzel duruyordu. Aslında
+                                                            daha
+                                                            güzel bir şehir olabilirmiş ancak muhtemelen
+                                                            yoksulluktan
+                                                            dolayı şehir o kdar gelişmiş değildi. Artı olarak uzun
+                                                            zamandır Arnavutların ve Sırpların kendi bölgesi
+                                                            olduğuna
+                                                            dair bir kavgası olduğu için yer yer burada Sırplarla ya
+                                                            da
+                                                            Arnavutlarla karşılaşmanız mümkün. Kosovayı da gezdikten
+                                                            sonra Üsküp'e geçtik orayı da zaten anlatmıştım. Oradan
+                                                            da
+                                                            Bulgaristan üzerinden Türkiye'ye geçip bu unutulmaz
+                                                            Balkan
+                                                            Tur'unu tamamladık. He bu arada Üsküp'ten Türkiye'ye
+                                                            gelmemiz yaklaşık 15 saat sürdü.</p>
+                                                    </div>
+                                                    <div class="ResimliMetin BackgroundImage" style="background-image: url('/PLAYSCRIBE_Frontend/Images/KOSOVA2.jpg'); -webkit-mask-image:
+                                              -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+                                             border-radius: 15px 15px 15px 15px;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+    
+                            </div>
+                        </div>
+                    </div>
+    
+                </Div>
+    
+                <div class="Pagination_Panel">
+                    <div aria-label="Page navigation example" class="BlockPagination">
+                        <div  class="Pagination_Button_Panel">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link PreviousPage" href="#">Önceki Sayfa</a>
+                                </li>
+                                <li class="page-item"><a class="page-link NextPage" href="#">Sonraki
+                                        Sayfa</a></li>
+                            </ul>
+                        </div>
+                        <div  class="MenuBlokBack DisplayFlex" style="float: right;">
+                            <button type="button" class="btn btn-dark">Menüye Dön</button>
+                        </div>
+                    </div>
+                 
+                   
+                </div>
+            </div>
+            <div class="Feedback DisplayNone">
+                <div class="container-fluid"
+                    style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                    <div class="Contact_Section">
+                          @if (User.Identity.IsAuthenticated)
+                          {
+                              <div class="Contact_Form">
+                                      <h1 style=" color: rgb(62, 170, 134); display: block; margin: 30px;">
+                            İLETİŞİM BÖLÜMÜ</h1>
+                           <form action="" class="Contact_form">
+                             <label for="Username" class="label_form">Kullanıcı İsmi</label>
+                            <input class="Contact_Username" type="text" placeholder="İsminizi giriniz">
+
+                             <label for="Mail" class="label_form">E-posta</label>
+                            <input class="Contact_Email" type="text" placeholder="E-postanızı buraya giriniz">
+
+                            <label for="Title" class="label_form">Konu Başlığı</label>
+                            <input class="Contact_Title" type="text" placeholder="Konu başlığınızı buraya giriniz.">
+
+                            <label for="Description" class="label_form">Açıklama</label>
+                            <textarea name="text" class="Contact_Text Contact_area" cols="30" rows="10"
+                                placeholder="Neyden bahsetmek istediğinizi buraya yazınız."
+                             ></textarea>
+
+                                <div class="DisplayFlex" style="height: 5%;">
+                                    <hr class="hrEight">
+                                </div>
+                            <button type="button" class="Contact_btn btn btn-success"
+                                style="margin-top: 10px; margin-bottom: 10px; width: 40%;">Gönder</button>
+                            <h4 style="color: rgba(29, 32, 31, 0.76);">
+                                <i>Göndereceğiniz her geri
+                                    bildirim için teşekkür ederiz.</i>
+                            </h4>
+                           </form>
+                              </div>
+
+
+                             <div class="Contact_Successful DisplayNone">
+                                 <div>
+                                       <h1 class="ELyazısı" style=" color: rgb(62, 170, 134); display: block; margin: 30px; font-size:50px; text-align:center;">
+                                       GÖNDERDİĞİNİZ GERİ BİLDİRİM İÇİN TEŞEKKÜR EDERİZ.</h1>
+                                 </div>
+                                    <div class="DisplayFlex" style="height: 5%;">
+                                    <hr class="hrEight">
+                                   </div>
+                             </div>
+                          }
+                         else
+                         {
+                            <div class="row DisplayFlex">
+                                <div class="mb-2 mt-2" style="height:200px;">
+                                  <h3  style="color:black; text-align:center; font-size:40px;">Görünüşe göre oturum açmamışsınız lütfen oturum açınız.
+                                   </h3>
+                                </div>
+                                <div class="DisplayFlex">
+                                    <div class="mb-2 mt-2" style="width:40%">
+                                    <div style=" margin:auto;">
+                                         <a style="border-radius:10px;" type="button"  class="nav-link btn-success"  asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="@Url.Action("BlogMain", "Blog")">Kayıt Ol</a>
+                                    </div>
+                                    </div>
+                                   <div class="mb-2 mt-2" style="width:40%">
+                                    <div style="  margin:auto;">
+                                         <a  style="border-radius:10px;"  type="button"  class="nav-link btn-primary" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("BlogMain", "Blog")">Oturum Aç</a>
+                                    </div>
+                                    </div>    
+                                </div>
+                                
+                            </div>
+                               
+                         }    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+	</div>
+    <script src="~/js/JavaControl.js" asp-append-version="true"></script>
+	<script src="~/js/BlokJs.js" asp-append-version="true"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+
+</html>
+
+

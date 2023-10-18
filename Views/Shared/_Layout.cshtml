@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - PLAYSCRIBE_Backend</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	@* GOOGLE FONT LİNKLERİ *@
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lugrasimo&display=swap" rel="stylesheet">
+	@*Bootstrap *@
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+	@*External CSS *@
+	<link rel="stylesheet" href="~/css/GenelCss.css" asp-append-version="true">
+	<link rel="stylesheet" href="~/css/Identity.css" asp-append-version="true">
+</head>
+<body>
+	<div id="INCEPTION">
+		@RenderBody()
+	</div>
+	<div id="AnimateControl">
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+		<h1 class="ANIMATE"></h1>
+	</div>
+    
+    <script src="~/js/JavaControl.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

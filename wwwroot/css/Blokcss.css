@@ -1,0 +1,1229 @@
+#BLOCKSECTION {
+    position: absolute;
+    margin: auto;
+    height: 1600px;
+    width: 100%;
+}
+
+.MAINBLOK {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.MainBlockMenu {
+    position: relative;
+    background-image: url('/PLAYSCRIBE_Frontend/Images/backgroundBlock.jpg');
+    display: block;
+    padding: 0;
+    background-color: rgb(206, 179, 179);
+    border: 2px solid rgb(114, 109, 109);
+    border-radius: 10px;
+    height: 100%;
+}
+
+.NAVBARBLOK {
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgb(36, 32, 32);
+    width: 100%;
+}
+.navbar-collapse
+{
+    justify-content: space-between;
+    
+}
+
+.nav-link {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    color: white;
+    border-left: 1px solid rgb(185, 175, 175);
+}
+
+.nav-link:hover {
+    color: rgb(185, 175, 175);
+}
+
+.Blocks,
+.Feedback {
+    box-shadow: 5px 5px 20px rgb(241, 222, 222);
+    display: block;
+    position: absolute;
+    height: 96%;
+    width: 100%;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.Feedback {
+    z-index: 2;
+    background-image: url('/PLAYSCRIBE_Frontend/Images/BackgroundFeedback.png');
+}
+
+.Contact_Section {
+    width: 50%;
+    height: auto;
+    background-color: rgb(235, 225, 225);
+    border-radius: 20px;
+    border: 1px solid black;
+    box-shadow: 4px 4px 10px rgb(255, 254, 254);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    padding: 10px;
+}
+
+.Contact_area {
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.Contact_form {
+    display: flex;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.label_form {
+
+    font-size: 30px;
+    color: rgb(37, 32, 32);
+    text-shadow: 1px 1px 3px black;
+}
+
+.navbar-toggler {
+    background: url("/PLAYSCRIBE_Frontend/Images/NavBarArrow.png");
+    width: 10%;
+    padding: 0px;
+}
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0;
+}
+
+/* BLOK ANA MENU CSS ÖZELLİKLERİ */
+.BlokMenuAnaBaslık {
+    color: rgb(136, 43, 43);
+    font-size: 100px;
+}
+
+.BlokMiniGorsel {
+    padding: 0;
+    position: absolute;
+    border-radius: 20px;
+    transform-origin: center center;
+    position: absolute;
+    width: 15%;
+    height: 20%;
+    z-index: 2;
+}
+
+@keyframes OpeningBlock {
+    0% {
+        width: 15%;
+        height: 20%;
+        top: 25%;
+
+        pointer-events: none;
+    }
+
+    50% {
+        width: 15%;
+        height: 20%;
+        border-radius: 0;
+        top: 3%;
+        pointer-events: none;
+    }
+
+    100% {
+        height: 85%;
+        width: 87%;
+        top: 3%;
+        border-radius: 0;
+        pointer-events: none;
+    }
+}
+.NoFavori {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index:3;
+}
+.BlokSecenekler {
+    position: absolute;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
+}
+
+.BlokSecenekler:hover {
+    background-color: rgba(0, 0, 0, 0.61);
+
+}
+
+.Blok_Goruntule_Div,
+.Blok_Yorumla_Div {
+    width: 50%;
+}
+
+.Like,
+.ShowBlok,
+.CommentBlok,
+.LoginWarning_Blog,
+.SignupButton_blog,
+.LoginButton_blog {
+    opacity: 0;
+}
+
+.BlokSecenekler:hover .Like,
+.BlokSecenekler:hover .ShowBlok,
+.BlokSecenekler:hover .CommentBlok,
+.BlokSecenekler:hover .LoginWarning_Blog,
+.BlokSecenekler:hover .SignupButton_blog,
+.BlokSecenekler:hover .LoginButton_blog {
+    opacity: 1;
+}
+
+.Like {
+    width: 45%;
+    height: 30%;
+}
+
+.ShowBlok,
+.CommentBlok,
+.BlokYorumYaz,
+.BlokKapat,
+.BlokYorumlarButon {
+    margin: 7px;
+    color: white;
+    border-radius: 10px;
+}
+.CommentTitle {
+    color: rgb(20, 42, 143);
+    margin-left: 10px;
+    font-size: 45px;
+}
+.CommentSection {
+    margin: auto;
+    background-color: rgb(192, 182, 182);
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px white;
+}
+
+.BlokYorumlar {
+    background-color: rgb(168, 158, 158);
+    border: 0.1px solid black;
+    overflow: auto;
+
+}
+
+.YorumYazmaBlok,
+.BlokYorumlar, 
+.YorumOturum {
+    width: 90%;
+    height: 90%;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.BlokYorumYaz {
+    float: right;
+}
+
+.BlokKapat {
+    float: left;
+}
+
+.BlokForm {
+    background-color: #6c7680;
+    box-shadow: 5px 5px 5px rgb(62, 62, 63);
+    color: rgb(15, 15, 15);
+    height:90%;
+}
+
+.ButonGolge {
+    box-shadow: 4px 4px 6px rgb(114, 108, 108);
+}
+
+.Yorum {
+    background-color: rgb(235, 225, 225);
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px rgb(156, 155, 155);
+    margin: 20px;
+}
+
+/* 1. BLOK VE ONUNLA ALAKALI İŞLEMLER */
+.BLOCKCONTENT {
+    height: 89%;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* SAYFA DEĞİŞTİME VEYA KAPATMA İŞLEMLERİ */
+.Pagination_Panel {
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.Pagination_Button_Panel {
+    width: 15%;
+    margin: auto;
+}
+
+.BlockPagination {
+    width: 100%;
+    float: left;
+    z-index: 2;
+    position: absolute;
+}
+
+.BlockPagination ul li a {
+    color: white;
+    text-shadow: 2px 2px 7px rgb(20, 24, 230);
+    background: rgb(37, 36, 36);
+}
+
+.MenuBlokBack {
+    width: 100%;
+    position: relative;
+    float: right;
+}
+
+.MenuBlokBack,
+.BlockPagination {
+    z-index: 2;
+    margin: 0
+}
+
+.PAGE1BLOCK,
+.PAGE2BLOCK,
+.PAGE3BLOCK,
+.PAGE4BLOCK,
+.PAGE5BLOCK {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+
+}
+
+.PAGE1BLOCK {
+
+    z-index: 5;
+}
+
+.PAGE2BLOCK {
+    z-index: 4;
+}
+
+.PAGE3BLOCK {
+    z-index: 3;
+}
+
+.PAGE4BLOCK {
+    z-index: 2;
+}
+
+.PAGE5BLOCK {
+    z-index: 1;
+}
+
+.PAGE1,
+.PAGE2,
+.PAGE3,
+.PAGE4 {
+    transform-origin: left center;
+
+}
+
+.BLOCK1 {
+    height: 100%;
+    background: linear-gradient(45deg, rgb(197, 192, 192), rgb(229 215 215), rgb(216, 238, 217), rgb(218, 225, 243), rgb(197, 193, 193));
+    margin: auto;
+    top: 5%;
+    width: 85%;
+    background-size: 400%, 500%;
+    animation: colorChange 5s ease 1s infinite;
+}
+
+.BLOKANABASLIK {
+    height: 8%;
+}
+
+.BLOKANATANITIM {
+    height: 92%;
+}
+
+.BLOCK1_TITLE {
+    padding: 15px;
+    font-size: 40px;
+    color: rgb(81, 91, 177);
+    text-align: center;
+    text-shadow: 4px 4px 6px rgb(0, 17, 255);
+}
+
+.BLOCK1_ILKSATIR {
+    height: 30%;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    gap: 10px;
+}
+
+.Block1GecisGorsel_Part {
+    height: 30%;
+    padding: 10px;
+    position: relative;
+}
+
+.Block1GecisGorselDıv {
+
+    height: 100%;
+    overflow: hidden;
+    animation: shadowGorsel 4s linear 0.1s infinite;
+
+}
+
+.Block1GecisGorsel {
+    -webkit-mask-image: -webkit-gradient(linear, left bottom, right bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    animation: GecisGorselAnimasyon 4s ease 0.1s infinite;
+
+}
+
+.Block1AnimasyonBaslık {
+
+    z-index: 2;
+    position: absolute;
+    color: red;
+    font-size: 80px;
+    top: 50%;
+    animation: GecisTextAnimasyon 4s ease 0.1s infinite;
+}
+
+.IlkDeneyim_Part {
+    height: 30%;
+    padding: 5px;
+}
+
+.IlkDeneyim_Part .AcıklamaMetni .column p {
+    font-size: 25px;
+}
+
+
+@keyframes BasGorsel {
+    0% {
+        opacity: 0.1;
+        filter: blur(16px);
+        transform: translateY(-12px);
+    }
+
+    25% {
+        opacity: 0.3;
+        filter: blur(12px);
+        transform: translateY(-9px);
+    }
+
+    50% {
+        opacity: 0.5;
+        filter: blur(8px);
+        transform: translateY(-6px);
+    }
+
+    75% {
+        opacity: 0.8;
+        filter: blur(4px);
+        transform: translateY(-3px);
+    }
+
+    75% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0px);
+    }
+}
+
+.BLOCK1_BASGORSEL {
+    height: auto;
+    width: auto;
+    box-shadow: 6px 6px 9px rgb(43, 137, 199);
+    animation: BasGorsel 2.5s ease-in 0s 1;
+}
+
+.BLOCK1_BASGORSEL h3 {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    padding: 5px;
+    font-size: 30px;
+    color: rgb(255 255 255);
+    text-shadow: 3px 3px 5px rgb(78 207 255);
+}
+
+
+@keyframes GecisGorselAnimasyon {
+    0% {
+
+        filter: blur(10px);
+
+    }
+
+    10%,
+    95% {
+        box-shadow: 8px 8px 15px rgb(202, 149, 149);
+        filter: blur(8px);
+    }
+
+    20%,
+    90% {
+        box-shadow: 6px 6px 12px rgb(138, 104, 104);
+        filter: blur(6px);
+    }
+
+    30%,
+    80% {
+        box-shadow: 4px 4px 9px rgb(109, 86, 86);
+        filter: blur(4px);
+    }
+
+    40%,
+    70% {
+        box-shadow: 2px 2px 5px rgb(90, 80, 80);
+        filter: blur(2px);
+    }
+
+    60% {
+        text-shadow: none;
+        filter: blur(none);
+    }
+
+    100% {
+        box-shadow: 10px 10px 20px rgb(189, 103, 103);
+        filter: blur(10px);
+    }
+}
+
+@keyframes GecisTextAnimasyon {
+    0% {
+        color: rgba(168, 72, 72, 0.829);
+        text-shadow: none;
+
+    }
+
+    30% {
+        color: rgba(197, 40, 40, 0.849);
+        text-shadow: none;
+    }
+
+    500% {
+        color: rgb(240, 26, 26);
+        text-shadow: 5px 5px 15px rgb(250, 0, 0);
+    }
+
+    60% {
+        color: rgb(255, 0, 0);
+        text-shadow: 5px 5px 20px rgb(250, 0, 0);
+    }
+
+    100% {
+        color: rgba(168, 72, 72, 0.747);
+        text-shadow: none;
+    }
+}
+
+@keyframes shadowGorsel {
+    0% {
+        box-shadow: 10px 10px 20px rgb(190, 43, 43);
+        border-radius: 20px;
+
+    }
+
+    10%,
+    95% {
+        box-shadow: 8px 8px 15px rgba(190, 43, 43, 0.774);
+        border-radius: 18px;
+    }
+
+    20%,
+    90% {
+        box-shadow: 6px 6px 12px rgba(190, 43, 43, 0.493);
+        border-radius: 15px;
+    }
+
+    30%,
+    80% {
+        box-shadow: 4px 4px 9px rgba(190, 43, 43, 0.329);
+        border-radius: 10px;
+    }
+
+    40%,
+    70% {
+        box-shadow: 2px 2px 5px rgba(190, 43, 43, 0.178);
+        border-radius: 5px;
+    }
+
+    60% {
+        text-shadow: none;
+        border-radius: none;
+    }
+
+    100% {
+        box-shadow: 10px 10px 20px rgb(189, 103, 103);
+        border-radius: 20px;
+    }
+}
+
+/* BLOK BÖLÜMÜ BLOK SAYFALAR ARASI İŞLEMLER */
+@keyframes TurningPage {
+    0% {
+        transform: perspective(1300px) rotateY(0deg);
+    }
+
+    70% {
+        transform: perspective(1300px) rotateY(-180deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: perspective(1300px) rotateY(-180deg);
+        opacity: 0;
+    }
+}
+
+/* ÜLKE İÇİ AYARLAR */
+/* ÜLKELER ANA AYARLAMA */
+.YunanistanTanitim {
+    height: 35%
+}
+
+.MakedonTanitim {
+    height: 60%;
+}
+
+.ArnavutTanitim {
+    height: 45%;
+    padding: 10px;
+}
+
+.KaradagTanitim {
+    height: 50%;
+
+}
+
+.HırvatTanitim {
+    height: 35%;
+    padding: 10px;
+}
+
+.BosnaTanitim {
+    height: 63%;
+    position: relative;
+}
+
+.Sırbistantanitim {
+    height: 700px;
+    position: relative;
+}
+
+.KaradagTanitim {
+    height: 54%;
+    padding: 10px;
+}
+
+/* ÜLKELER CONTENT AYARLAMASI */
+.YunanGorsel_Div {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    height: 30%;
+}
+
+.YunanGorsel {
+    width: 50%;
+}
+
+.AcıklamaMetni {
+    padding: 5px;
+    overflow: auto;
+    color: #af1a1a;
+    overflow: hidden;
+
+}
+
+.ResimliMetin {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: -webkit-gradient(linear, left bottom, right bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+    border-radius: 15px 0px 0px 15px;
+}
+
+.ResimUstuMetin {
+    font-size: 15px;
+    position: absolute;
+    z-index: 2;
+}
+
+.METINBASLIK {
+    font-size: 50px;
+    color: rgb(23, 151, 130);
+    text-shadow: 4px 4px 6px rgb(0, 162, 255);
+    text-align: center;
+    margin: 0;
+
+}
+
+.KaradagBaslık {
+    height: 10%;
+}
+
+.KaradagContent {
+    height: 80%;
+    position: relative;
+}
+
+.GridGorselMain {
+    position: absolute;
+    z-index: 1;
+    padding: 5px;
+    width: 90%;
+    height: 90%;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 33%);
+    max-height: 500px;
+}
+
+.GridGorsel {
+    border-radius: 10px;
+    opacity: 0;
+}
+
+@keyframes OpacityToOne {
+    0% {
+        opacity: 0.1;
+        filter: blur(10px);
+        box-shadow: 6px 6px 8px rgb(121, 121, 250);
+    }
+
+    35% {
+        opacity: 1;
+        filter: blur(0px);
+        box-shadow: none;
+    }
+
+    65% {
+
+        opacity: 1;
+        filter: blur(10px);
+        box-shadow: none;
+    }
+
+    100% {
+        opacity: 0.1;
+        filter: blur(10px);
+        box-shadow: 6px 6px 8px rgb(121, 121, 250);
+    }
+}
+
+/* ÇAPRAZLAMA YAPAN RESİMLER */
+.CaprazResim {
+    background-image: url('/PLAYSCRIBE_Frontend/Images/HIRVATISTAN4.jpg');
+    opacity: 0;
+}
+
+.OpacityZeroCapraz {
+    animation: opacityzero 3s linear 0.1s 1;
+}
+
+.OpacityOneCapraz {
+    animation: opacityzero 3s reverse 0.1s 1;
+}
+
+@keyframes opacityzero {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.KanlıDiv {
+
+    animation: KanlıDivanimation 2s linear infinite;
+    background: radial-gradient(circle, #530e0e, #2e0b0b);
+    border-radius: 20px;
+    filter: blur(10px);
+}
+
+@keyframes KanlıDivanimation {
+
+    0%,
+    100% {
+        width: 95.5%;
+        height: 95.5%;
+        box-shadow: 5px 5px 10px rgb(201, 23, 23);
+
+    }
+
+    30%,
+    80% {
+
+        box-shadow: 5px 5px 10px rgb(139, 30, 30);
+    }
+
+    50% {
+        width: 96%;
+        height: 96%;
+        box-shadow: 5px 5px 10px rgb(75, 9, 9);
+    }
+}
+
+.gridBosna {
+    display: grid;
+    position: relative;
+    grid-template-columns: auto auto;
+}
+
+.SırpSenkroResim {
+    width: 20%;
+    height: 80%;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgb(238, 187, 187);
+    opacity: 0;
+}
+
+
+
+/* BLOK1 ÜLKE COLORLARI */
+.CoverSquare {
+    width: 100%;
+    height: 100%;
+}
+
+.YunanYazı {
+    color: rgb(76, 173, 173);
+    text-shadow: 2px 2px 5px rgb(139, 195, 199);
+    font-size: 15px;
+}
+
+.MakedonYazı {
+    color: rgb(199, 73, 35);
+
+}
+
+.ArnavutYazı {
+    color: #d11313;
+    font-size: 15px;
+}
+
+.KaradagYazı {
+    color: rgb(133, 69, 10);
+    text-shadow: 1px 1px 3px rgb(212, 161, 67);
+}
+
+.HırvatYazı {
+    color: rgb(255 0 0);
+    text-shadow: 2px 2px 4px rgb(6, 58, 126);
+    font-size: 13px;
+}
+
+.BosnakYazı {
+    font-size: 12px;
+    color: rgb(154 255 238);
+    text-shadow: 2px 2px 4px rgb(68 24 7);
+}
+
+.KosovaYazı {
+
+    color: rgb(45, 59, 255);
+    text-shadow: 2px 2px 4px rgba(243, 255, 77, 0.77);
+}
+
+.SırpYazı {
+
+    color: rgb(236, 10, 10);
+    text-shadow: 2px 2px 4px rgb(255, 255, 255);
+}
+
+.HiyerarsikYazı {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 900px) {
+    
+    .MainBlockMenu {
+        width: 100%;
+        position: absolute;
+        top: 0;
+    }
+
+    .MAINBLOK {
+        margin: auto;
+        display: block;
+        position: relative;
+        width: 90%;
+    }
+
+    .BlokMenuAnaBaslık {
+        font-size: 50px;
+    }
+
+    .Contact_Section {
+        width: 90%;
+    }
+
+    .CoverSquare .row .col-lg-5 {
+        width: 20%;
+        height: 100%;
+    }
+
+    .CoverSquare .row .col-lg-2 {
+        position: relative;
+        width: 60%;
+        height: 100%;
+
+    }
+
+    .BlokMiniGorsel {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Blok_Goruntule_Div,
+    .Blok_Yorumla_Div {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    /*BLOK YORUM BÖLÜMÜ*/
+
+    /* BLOK AÇMA İŞLEMLERİ */
+    @keyframes OpeningBlock {
+        0% {
+            width: 100%;
+            height: 100%;
+            top: 0;
+
+            pointer-events: none;
+        }
+
+        100% {
+            width: 150%;
+            height: 400%;
+            border-radius: 0;
+            top: -100%;
+            pointer-events: none;
+        }
+    }
+
+    /* BLOK İŞLEMLERİ */
+    .Blocks,
+    .Feedback {
+        z-index: 2;
+        height: 96.5%;
+    }
+
+    .BLOCK1 {
+        padding: 0;
+        height: 100%;
+        position: initial;
+    }
+
+    .PAGE1BLOCK,
+    .PAGE2BLOCK,
+    .PAGE3BLOCK,
+    .PAGE4BLOCK,
+    .PAGE5BLOCK {
+        height: 100%;
+    }
+
+    .BLOKANABASLIK {
+        height: 8%;
+    }
+
+    .BLOKANATANITIM {
+        height: 92%;
+        position: relative;
+    }
+
+    .BLOCK1_ILKSATIR {
+        height: 30%;
+        padding: 5px;
+        grid-template-columns: repeat(2, 49%);
+    }
+
+    .Block1GecisGorsel_Part {
+        padding: 10px;
+        height: 20%;
+    }
+
+    .Block1GecisGorselDıv {
+        height: 100%;
+    }
+
+    .IlkDeneyim_Part {
+        height: 44%;
+    }
+
+    .IlkDeneyim_Part .AcıklamaMetni .column p {
+        font-size: 18px;
+        padding-left: 5px;
+        color: #ff0000;
+    }
+
+    .BLOCK1_BASGORSEL {
+        height: auto;
+        width: auto;
+    }
+
+    .BLOCK1_BASGORSEl h3 {
+        font-size: 25px;
+    }
+
+    .Block1AnimasyonBaslık {
+        font-size: 30px;
+        white-space: nowrap;
+    }
+
+    /* BLOKLARDAKİ SAYFALARIN AYARLAMASI */
+    .METINBASLIK {
+        font-size: 25px;
+    }
+
+    /* ÜLKELERİN ANA TANITIM PANELİ */
+    .YunanistanTanitim {
+        height: 35%;
+    }
+
+    .MakedonTanitim {
+        height: 63%;
+    }
+
+    .ArnavutTanitim {
+        height: 35%;
+        padding: 10px;
+    }
+
+    .KaradagTanitim {
+        height: 62%;
+
+    }
+
+    .HırvatTanitim {
+        height: 30%;
+    }
+
+    .BosnaTanitim {
+        height: 68%;
+    }
+
+    .Sırbistantanitim {
+        height: 54%;
+    }
+
+    .KosovaTanitim {
+        height: 45%;
+    }
+
+    /* ÜLKELER İÇ AYARLAR */
+    /* YUNANİSTAN CONTENT AYARLARI */
+    .YunanGorsel_Div {
+        height: auto;
+    }
+
+    .YunanGorsel {
+        width: 50%;
+    }
+
+    .KaradagBaslık {
+        height: 3%;
+    }
+
+    /* KARADAĞ CONTENT AYARLARI */
+    .KaradagContent {
+        height: 97%;
+    }
+
+    .GridGorselMain {
+        max-height: 100%;
+        width: 90%;
+        grid-template-columns: repeat(1, 95%);
+    }
+
+    /* BOSNA HERSEK  CONTENT AYARLARI */
+    .gridBosna {
+        grid-template-columns: auto;
+    }
+
+    /* HIRVATİSTAN CONTENT AYARLARI */
+    .CaprazResimMain {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    /* SIRBİSTAN CONTENT AYARLARI*/
+    .SırpSenkroResim {
+        width: 100%;
+        height: 20%;
+    }
+
+    /* YAZI TÜRLERİ */
+    .YunanYazı {
+        font-size: 9px;
+    }
+
+    .MakedonYazı {
+        font-size: 9px;
+    }
+
+    .ArnavutYazı {
+        font-size: 9.5px;
+        padding-left: 5px;
+    }
+
+    .KaradagYazı {
+        font-size: 10px;
+    }
+
+    .HırvatYazı {
+        font-size: 7.5px;
+    }
+
+    .BosnakYazı {
+        font-size: 7.5px;
+    }
+
+    .SırpYazı {
+        font-size: 12px;
+    }
+
+    .KosovaYazı {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    /* BLOK GERİ GELME VE SAYFA DEĞİŞTİRME İŞLEMLERİ */
+
+    .Pagination_Panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Pagination_Button_Panel {
+        width: auto;
+    }
+
+    .pagination {
+        justify-content: center;
+    }
+
+    .pagination li {
+        width: 40%;
+
+    }
+
+    .MenuBlokBack {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    @media (orientation: landscape) {
+        .CoverSquare .row .col-lg-5 {
+            width: 33%;
+            height: 100%;
+        }
+
+        .CoverSquare .row .col-lg-2 {
+            width: 33%;
+            height: 100%;
+
+        }
+
+        .METINBASLIK {
+            font-size: 30px;
+        }
+
+        /* ÜLKE İÇ AYARLARI */
+        .HırvatTanitim {
+            height: 30%;
+        }
+
+        .BosnaTanitim {
+            height: 69%;
+        }
+
+        /* BLOKLARDAKİ SAYFALARIN AYARLAMASI */
+        .YunanGorsel_Div {
+            height: 100px;
+        }
+
+        /* YAZI TÜRLERİ */
+        .YunanYazı {
+            font-size: 13px;
+        }
+
+        .MakedonYazı {
+            font-size: 13px;
+        }
+
+        .ArnavutYazı {
+            font-size: 15px;
+        }
+
+        .KaradagYazı {
+            font-size: 16px;
+        }
+
+        .HırvatYazı {
+            font-size: 10px;
+            padding: 15px;
+        }
+
+        .BosnakYazı {
+            font-size: 11px;
+        }
+
+        .SırpYazı {
+            font-size: 18px;
+        }
+
+        .KosovaYazı {
+            font-size: 16px;
+            padding: 8px;
+        }
+    }
+}

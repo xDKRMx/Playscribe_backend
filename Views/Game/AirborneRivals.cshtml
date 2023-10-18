@@ -1,0 +1,449 @@
+﻿@page
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>PLAYSCRIBE_Backend</title>
+
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/PLAYSCRIBE_Backend.styles.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/AIRBORNERIVALSCss.css" asp-append-version="true">
+	@* GOOGLE FONT LİNKLERİ *@
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lugrasimo&display=swap" rel="stylesheet">
+	@*Bootstrap *@
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+	@*External CSS *@
+	<link rel="stylesheet" href="~/css/GenelCss.css" asp-append-version="true">
+</head>
+<body>
+	<div id="GAMESECTION">
+		<div class="MAINGAME row">
+			<div class="GAME container-fluid DisplayNone">
+				<div class="GAMELOGIC  DisplayNone">
+					<div class="container OYUNMANTIK">
+						<div class=" column">
+							<div class="row-lg-10">
+								<p class="ParagrafBası">
+									<i style="color: #ec1111;">AIRBORNE RIVALS</i> oyununun kısaca
+									mantığı şu şekilde. Bizim kontrol ettiğimiz bir dron
+									var ve bu dron düşman dronları tarafından saldırı altında ve amaçları bizim yakınımıza
+									gelerek kendilerini imha edip hem kendisini hem de bizi yok etmek. Bizim elimizde ise
+									dronumuza ait bir silah var ve biz bu dron silahını sağ, sol, üst, alt yönlere çevirerek
+									istediğimiz yöne ateş edebiliyoruz ama sürekli ateş etmemiz belli bir süre sonra bizim
+									lazer mühimmatımızı bitiriyor ve bunun sonucu olarak tekrar ateş edebilmemiz için lazer
+									mühimmatımızı yeniden doldurmamız gerekiyor.
+									Dronumuzun sol altındaki bar bize ne kadar lazer mühimmatımız kaldığını gösteriyor.
+									Ayrıca
+									dronumuzu haritanın sınırlarına dokunmamak şartıyla istediğimiz yönde hareket
+									ettirebiliriz. Özellikle ilerleyen aşamalarda bolca dron bize saldıracak, bu yüzden
+									mümkün olduğunca
+									hareketli olmaya çalışmalıyız ve hareket ederken de bize doğru yaklaşan dronları
+									silahımızı o yöne çevirerek yok etmeliyiz. Ne kadar dayanırsak o kadar yüksek skor
+									alırız. İYİ AVLAMALAR!
+									<br>
+									<i> <b style="color: red;">OYNANIŞ</b></i> <br>
+									HAREKET : W, A, S, D <br>
+									SAĞA DÖNÜŞ : SAĞ YÖN TUŞU <br>
+									SOLA DÖNÜŞ : SOL YÖN TUŞU <br>
+									YUKARIYA DÖNÜŞ : YUKARI YÖN TUŞU <br>
+									AŞAĞIYA DÖNÜŞ : AŞAĞI YÖN TUŞU <br>
+									ATEŞ ETME : BOŞLUK TUŞU <br>
+									MERMI YENİLEME : R <br>
+									OYUNDAN ÇIKIŞ : ESC <br>
+								</p>
+							</div>
+							<div class="row-lg-2 DisplayFlex">
+								<button class="NEONBUTON GAMESCAPEBUTON" id="GAMELOGICOFF">PANELİ KAPAT</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="COSMETICPANEL  DisplayNone">
+					<div class="container-fluid Cosmetic" style="height: 80%;">
+						<div class="row DisplayFlex" style="justify-content: space-between;">
+							<div class="row-lg-10" style="height: 80%;">
+								<div class="row " style=" display: block; margin: 0;">
+									<div class="COSMETICTABLE">
+										<div>
+											<img src="~/PLAYSCRIBE_Frontend/Images/Drone1.png" class="CELLS">
+										</div>
+										<div>
+											<img src="~/PLAYSCRIBE_Frontend/Images/Drone2.png" class="CELLS">
+										</div>
+										<div>
+											<img src="~/PLAYSCRIBE_Frontend/Images/Drone3.png" class="CELLS">
+										</div>
+										<div>
+											<img src="~/PLAYSCRIBE_Frontend/Images/Drone4.png" class="CELLS">
+										</div>
+										<div>
+											<img src="~/PLAYSCRIBE_Frontend/Images/Drone5.png" class="CELLS">
+										</div>
+										<div>
+											<img src="~/PLAYSCRIBE_Frontend/Images/Drone6.png" class="CELLS">
+										</div>
+										<div>
+											<img src="~/PLAYSCRIBE_Frontend/Images/Drone7.png" class="CELLS">
+										</div>
+										<div>
+											<img src="~/PLAYSCRIBE_Frontend/Images/Drone8.png" class="CELLS">
+										</div>
+										<div>
+											<img src="~/PLAYSCRIBE_Frontend/Images/Drone9.png" class="CELLS">
+										</div>
+									</div>
+									<div class="col-lg-5  container-fluid LAZERCOSMETIC">
+										<div class="COSMETICTABLE">
+											<div class="LAZERCELLS">
+												<div style="height: 90%; width: 1%; border: 2px solid rgba(231, 32, 32); border-radius: 10px;">
+												</div>
+											</div>
+											<div class="LAZERCELLS">
+												<div style="height:  90%; width: 1%; border: 2px solid rgba(32, 231, 221); border-radius: 10px;">
+												</div>
+											</div>
+											<div class="LAZERCELLS">
+												<div style="height:  90%; width: 1%; border: 2px solid rgba(32, 231, 59); border-radius: 10px;">
+												</div>
+											</div>
+											<div class="LAZERCELLS">
+												<div style="height:  90%; width: 1%; border: 2px solid rgba(231, 32, 221); border-radius: 10px;">
+												</div>
+											</div>
+											<div class="LAZERCELLS">
+												<div style="height:  90%; width: 1%; border: 2px solid rgba(218, 231, 32); border-radius: 10px;">
+												</div>
+											</div>
+											<div class="LAZERCELLS">
+												<div style="height:  90%; width: 1%; border: 2px solid rgba(162, 0, 255); border-radius: 10px;">
+												</div>
+											</div>
+											<div class="LAZERCELLS">
+												<div style="height:  90%; width: 1%; border: 2px solid rgba(41, 11, 207); border-radius: 10px;">
+												</div>
+											</div>
+											<div class="LAZERCELLS">
+												<div style="height:  90%; width: 1%; border: 2px solid rgba(255, 255, 255); border-radius: 10px;">
+												</div>
+											</div>
+											<div class="LAZERCELLS">
+												<div style="height:  90%; width: 1%; border: 2px solid rgba(255, 136, 0); border-radius: 10px;">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="SKORTABLOSU ">
+					<div class="container" style="height: 100%; width: 100%;">
+						<div class="row">
+							<div class="col-lg-3 SKORCOL3">
+								<div class="SKOR">
+									<h1>SKOR</h1>
+									<h1 class="PUAN"></h1>
+								</div>
+							</div>
+							<div class="col-lg-9 container-fluid SKORCOL9">
+
+								<div class="row" style="height: 100%;">
+									<div class="col-lg-3 DRONSKORSAYAC">
+										<img src="~/PLAYSCRIBE_Frontend/Images/BADDRONE1.png" class="DRONSKORIMG">
+										<div class="KILLTABLO">
+											<h1>İMHA SAYISI</h1>
+											<h1 class="KILL1"></h1>
+										</div>
+									</div>
+									<div class="col-lg-3 DRONSKORSAYAC">
+										<img src="~/PLAYSCRIBE_Frontend/Images/BADDRONE2.png" class="DRONSKORIMG">
+										<div class="KILLTABLO">
+											<h1>İMHA SAYISI</h1>
+											<h1 class="KILL2"></h1>
+										</div>
+									</div>
+									<div class="col-lg-3 DRONSKORSAYAC">
+										<img src="~/PLAYSCRIBE_Frontend/Images/BADDRONE3.png" class="DRONSKORIMG">
+										<div class="KILLTABLO">
+											<h1>İMHA SAYISI</h1>
+											<h1 class="KILL3"></h1>
+										</div>
+									</div>
+									<div class="col-lg-3 DRONSKORSAYAC">
+										<img src="~/PLAYSCRIBE_Frontend/Images/BADDRONE4.png" class="DRONSKORIMG">
+										<div class="KILLTABLO">
+											<h1>İMHA SAYISI</h1>
+											<h1 class="KILL4"></h1>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="Restriction container-fluid ">
+					<div class="row" style="position:absolute">
+						<div id="DRON">
+							<div class="DRONSECTION">
+								<img src="~/PLAYSCRIBE_Frontend/Images/Drone1.png" class="DRONIMG">
+								<div class="TOPLAMMERMI">
+									<div class="KALANMERMI"></div>
+								</div>
+							</div>
+							<div class="LAZERSECTION">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6" style="padding: 0;">
+							<div class="container-fluid" style="padding: 0;">
+								<div class="column">
+									<div class="row-lg-1 row2">
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+
+									</div>
+									<div class="row-lg-10 row1">
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+
+
+									</div>
+									<div class="row-lg-1 row2">
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<div class="col-lg-6" style="padding: 0;">
+							<div class="container-fluid" style="padding: 0;">
+								<div class="column">
+									<div class="row-lg-1 row2">
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+
+									</div>
+									<div class="row-lg-10 row3">
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+
+
+									</div>
+									<div class="row-lg-1 row2">
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+										<h1 class="SINIR"></h1>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="YONETIMBUTONLARIMOBIL">
+					<div class="row DisplayFlex">
+						<div class="HAREKETETMEYONETIMMOBIL">
+							<div class="HAREKETMETUSLARI">
+								<div class="ILERITUSU">
+									<button class="ILERITUSU_BTN btn">W</button>
+								</div>
+								<div class="SAGSOL">
+									<div class="SOLTUSU">
+										<button class="SOLTUSU_BTN btn">A</button>
+									</div>
+
+									<div class="ATESET">
+										<button class="ATESET_BTN"></button>
+									</div>
+
+									<div class="SAGTUSU">
+										<button class="SAGTUSU_BTN btn">D</button>
+									</div>
+								</div>
+								<div class="GERITUSU">
+									<button class="GERITUSU_BTN btn">S</button>
+								</div>
+							</div>
+						</div>
+						<div class="DONMEYONETIMMOBIL ">
+							<div class="DONMETUSLARI">
+								<div class="ILERIDON">
+									<button class="ILERIDON_BTN btn" style="transform: rotate(-90deg);"></button>
+								</div>
+								<div class="SAGSOL">
+									<div class="SOLDON">
+										<button class="SOLDON_BTN btn" style="transform: rotate(180deg);"></button>
+									</div>
+									<div class="RELOADLA">
+										<button class="RELOAD_BTN"></button>
+									</div>
+
+									<div class="SAGDON">
+										<button class="SAGDON_BTN btn" style="transform: rotate(0deg);"></button>
+									</div>
+
+								</div>
+								<div class="GERIDON">
+									<button class="GERIDON_BTN" style="transform: rotate(90deg);"></button>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<div class="OYUNCIKISMOBIL ">
+						<div class=" DisplayFlex">
+							<button class="NEONBUTON GAMESCAPEBUTON" id="ANLIKGAMEMENUMOBIL_BTN">OYUNU DURDUR</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="ANLIKOYUNMENU container-fluid DisplayNone">
+					<div class="row">
+						<div class="col-lg-1 offset"></div>
+						<div class="col-lg-4 OYUNLOBI">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="row-lg-3" style="margin-bottom: 20px;">
+										<h1 class="LOBIBASLIK">OYUN DURDURULDU</h1>
+									</div>
+									<div class="ANLIKLOBIBUTON row-lg-3">
+										<button class="NEONBUTON GAMESCAPEBUTON RESUMEGAME" id="RESUMEGAME">
+											OYUNA DEVAM
+											ET
+										</button>
+									</div>
+									<div class="ANLIKLOBIBUTON row-lg-3">
+										<button class="NEONBUTON GAMESCAPEBUTON LOGICBUTTON">OYUNUN MANTIĞI</button>
+									</div>
+									<div class="ANLIKLOBIBUTON row-lg-2">
+										<button class="NEONBUTON GAMESCAPEBUTON" id="ESCAPEMENU">MENÜYE DÖN</button>
+									</div>
+									<div class="row-lg-1" style=" padding: 20px;">
+										<h3>UNUTMA! EĞER DRONUN SINIRA DEĞERSE KENDİSİNİ İMHA EDER.</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="container-fluid SONSKOR" style="height: 100%; width: 100%;">
+								<div class="column">
+									<div class="row-lg-4 offset"></div>
+									<div class="LOBISKORGOSTERGESI row-lg-2">
+										<div class="SONSKORTABLOSU">
+											<h1 class="LOBISKORYAZISI">SKOR</h1>
+											<h1 class="SONPUAN"></h1>
+										</div>
+									</div>
+									<div class="row-lg-4">
+										<div class="container-fluid" style="display: inline; height: 70%;">
+											<div class="row LOBIKILLSAYACI">
+												<div class="col-lg-2">
+													<img src="~/PLAYSCRIBE_Frontend/Images/BADDRONE1.png" class="LOBIDRONIMG">
+													<div class="KILLTABLO">
+														<h1>İMHA SAYISI</h1>
+														<h1 class="KILL1"></h1>
+													</div>
+												</div>
+												<div class="col-lg-2">
+													<img src="~/PLAYSCRIBE_Frontend/Images/BADDRONE2.png" class="LOBIDRONIMG">
+													<div class="KILLTABLO">
+														<h1>İMHA SAYISI</h1>
+														<h1 class="KILL2"></h1>
+													</div>
+												</div>
+												<div class="col-lg-2">
+													<img src="~/PLAYSCRIBE_Frontend/Images/BADDRONE3.png" class="LOBIDRONIMG">
+													<div class="KILLTABLO">
+														<h1>İMHA SAYISI</h1>
+														<h1 class="KILL3"></h1>
+													</div>
+												</div>
+												<div class="col-lg-2">
+													<img src="~/PLAYSCRIBE_Frontend/Images/BADDRONE4.png" class="LOBIDRONIMG">
+													<div class="KILLTABLO">
+														<h1>İMHA SAYISI</h1>
+														<h1 class="KILL4"></h1>
+													</div>
+												</div>
+
+											</div>
+
+										</div>
+									</div>
+									<div class="row-lg-2 offset"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<script src="~/js/JavaControl.js" asp-append-version="true"></script>
+	<script src="~/js/ARControls.js" asp-append-version="true"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

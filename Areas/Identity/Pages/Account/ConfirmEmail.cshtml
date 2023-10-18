@@ -1,0 +1,15 @@
+﻿@page
+@model ConfirmEmailModel
+<div class="row DisplayFlex">
+	<div class="NEONDIV IdentityTitle">
+		<h1>HESABI ONAYLATMA</h1>
+	</div>
+	<div class="col-md-5" style="height : 100%">
+		<h1>@ViewData["Title"]</h1>
+		<partial name="_StatusMessage" model="Model.StatusMessage" />
+		<div>
+			<button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+		</div>
+	</div>
+</div>
+

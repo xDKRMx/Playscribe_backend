@@ -1,0 +1,393 @@
+.row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.TITLEABOUT {
+    height: 400px;
+}
+
+.Introduction {
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.Introduction .row div {
+    padding: 10px;
+}
+
+.METIN1 {
+
+    color: aliceblue;
+    margin-left: 10px;
+    box-sizing: border-box;
+    background-color: #290c3ab6;
+    margin-top: 20px;
+    text-shadow: 6px 6px 8px rgba(235, 221, 221, 0.699);
+}
+
+.METIN1 h1,
+.METIN2 h1 {
+    color: #af0000;
+    text-shadow: 6px 6px 8px rgba(226, 4, 4, 0.699);
+}
+
+.METIN2 {
+    font-size: 20px;
+    color: aliceblue;
+    text-shadow: 6px 6px 8px rgba(235, 221, 221, 0.699);
+}
+.METIN2 .NEONDIV h1 {
+    font-size: 60px;
+}
+
+.operasyonBTN {
+    background-color: #972020b0;
+    border-radius: 20px;
+    border: none;
+    color: #af0000;
+    color: aliceblue;
+    text-shadow: 6px 6px 8px rgba(235, 221, 221, 0.699);
+    font-size: 18px;
+}
+
+.OperationIMG {
+    
+    position: relative;
+    margin: auto;
+    padding: 10px;
+    height: 100%;
+}
+
+/* EKRAN GÖRÜNTÜLERİ VE TANITIM VİDEOSU */
+.ScreenShotSection {
+    background-color: #3d1a169f;
+    position: relative;
+    margin-bottom: 20px;
+    height: 840px;
+    width: 100%;
+}
+
+.ScreenShots {
+    position: absolute;
+    margin-top: 20px;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.ScreenShotSection .NEONDIV {
+    justify-content: center;
+    top: 0;
+    position: relative;
+
+    height: 10%;
+}
+
+.ScreenShotSection .NEONDIV h1,
+.VideoSection .NEONDIV h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+.GAME_IMG {
+    border: 1px solid rgba(160, 48, 48, 0.699);
+    border-radius: 10px;
+    height: 180px;
+    width: 300px;
+    margin: 10px;
+}
+
+.VideoSection {
+    position: relative;
+    background-color: #28163d9f;
+    height: 840px;
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.VideoPlayer {
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    align-items: center;
+}
+
+.OperationVideo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* İHSAN YAZILIM'DAN BAHSETME */
+.IhsanSection {
+    height: auto;
+    padding: 20px;
+    background-color: #1035079f;
+    height: 300px;
+    width: 100%;
+    color: aliceblue;
+    position: relative;
+}
+
+.IhsanSection h1,.AboutIhsan h1  {
+    text-align: center;
+    color: red;
+    text-shadow: 4px 4px 6px rgb(212, 37, 37);
+}
+.IhsanSectionOffset
+{
+    height: 100px;
+}
+.columnIhsan {
+    width: 100%;
+    position: absolute;
+
+}
+
+.AboutIhsan {
+    height: auto;
+    color: aliceblue;
+    position: relative;
+    background-color: #360f46cb;
+}
+.AboutIhsan h3 {
+    color: rgb(27, 179, 133);
+    text-shadow: 4px 4px 6px rgb(27, 179, 133);
+}
+
+.IHSANBUTTON {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IHSANBUTTON .Ihsan {
+
+    border-radius: 20px;
+    background: linear-gradient(90deg, rgb(17, 109, 44), rgb(32, 11, 126));
+    color: aliceblue;
+    height: auto;
+}
+
+.IHSANIMGSECTION {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.IHSANIMG {
+    width: 70px;
+    height: 70px;
+}
+
+.IMG_LINK_IHSAN {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    position: relative;
+    bottom: 0;
+}
+
+/* SON BÖLÜM  VE FOOTER*/
+.SonSoz {
+    margin-top: 30px;
+    height: auto;
+    background-color: #220909;
+    text-align: center;
+    padding: 30px;
+}
+
+.SonSoz h1 {
+    color: red;
+    text-shadow: 4px 4px 6px rgb(212, 27, 27);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.ABOUTFOOTER {
+    height: 150px;
+    width: 100%;
+    left: -10;
+    position: absolute;
+    top: 100%;
+    background-color: #0000008a;
+    color: rgb(11, 107, 107);
+    margin-top: 100px;
+}
+
+.FooterLeft,
+.FooterRight {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.FOOTERTITLE {
+    color: rgb(122, 18, 18);
+    text-shadow: 4px 4px 6px rgb(136, 14, 14);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.VerticalLine
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.HorizontalLine
+{
+    display: none;
+}
+.VerticalLine hr
+{
+    transform:rotate(90deg);
+    width: 50%;
+}
+.VerticalLine hr, .HorizontalLine hr{
+    position: absolute;
+    color: rgb(175, 175, 175);
+    background-color: rgb(175, 175, 175);
+
+}
+.HorizontalLine, .VerticalLine
+{
+    width: 100%;
+    height: 100%;
+    position: relative; 
+    padding: 30px;
+}
+
+.FooterLeft div img,
+.FooterRight div img {
+    position: absolute;
+    left: 50%;
+}
+
+.FooterLeft div h6,
+.FooterRight div h6 {
+    text-align: center;
+}
+
+.FooterLeft div h6 {
+    color: #7a1111c0;
+    margin: 0;
+}
+
+.FooterRight div h6 {
+    color: #11657a;
+    margin: 0;
+}
+
+.FooterLeft h6:hover {
+    color: rgb(182, 37, 37);
+    cursor: pointer;
+}
+
+.FooterRight h6:hover {
+    cursor: pointer;
+    color: rgb(13, 172, 235);
+}
+
+.Footer_Link_text {
+    font-size: 25px;
+    display: inline;
+    width: 33%;
+}
+
+/*  RESPONSIVE GORUNTU  */
+@media (max-width: 900px) {
+  
+    .MAINABOUT {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .TITLEABOUT {
+        margin-bottom: 50px;
+    }
+
+    .METIN1 {
+        margin: 10px;
+    }
+
+    .METIN2 .NEONDIV h1 {
+        font-size: 30px;
+    }
+
+    .container-fluid {
+        height: auto;
+    }
+
+    .OperateIMG {
+        height: 400px;
+        
+    }
+
+    .GAME_IMG {
+        width: 150px;
+        height: 100px;
+    }
+
+    .ScreenShotSection .NEONDIV h1,
+    .VideoSection .NEONDIV h1 {
+        font-size: 40px;
+        margin-top: 30px;
+    }
+    .IhsanSection
+    {
+        height: auto;
+      margin-bottom: 40px;
+    }
+    .IhsanSectionOffset
+    {
+        height: 0;
+    }
+    .IMG_LINK_IHSAN
+    {
+        height: auto;
+        padding: 10px;
+    }
+    .ABOUTFOOTER
+    {
+      height: 300px;
+    }
+    .HorizontalLine
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .VerticalLine
+    {
+        display: none;
+    }
+    /*  HEM MOBİLDEYKEN HEM DE YATAY MODDAYKEN */
+    @media (orientation: landscape) {
+        .TITLEABOUT
+        {
+            height: 100px;
+        }
+        .OperationIMG{
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+    }
+}

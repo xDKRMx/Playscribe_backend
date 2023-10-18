@@ -1,0 +1,12 @@
+﻿@model List<PLAYSCRIBE_Backend.Models.BlokProcesses>
+
+@foreach (var item in Model)
+{
+    <div class="Yorum">
+        <div class="mb-2" style="padding: 15px;"><h2 class="HIKAYEyazısı">@item.Username</h2></div>
+        <div class="DisplayFlex mb-2" style="height: 5%;">  <hr class="hrEight"></div>
+        <div class="mb-2" style="padding: 15px;">
+            <div><h2 class="HIKAYEyazısı">Yorumu : </h2><h4>@item.Comment</h4></div>
+        </div>
+    </div>
+}
