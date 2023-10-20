@@ -6,8 +6,8 @@ var Background_Sabit = false;
 var background = document.querySelector('body');
 //URL ROUTER CONTROL
 var currentUrl = window.location.href;
-var DefaultPanel = "https://playscribe.sigorta.teklifi.al/Home/HomeMain";
-var SecondaryPanel = "https://playscribe.sigorta.teklifi.al/Home/HomeSecondary";
+var DefaultPanel = "/Home/HomeMain";
+var SecondaryPanel = "/Home/HomeSecondary";
 if (currentUrl == SecondaryPanel || currentUrl == DefaultPanel) {
     // BÖLÜMLER DEĞİŞKENİ
 
